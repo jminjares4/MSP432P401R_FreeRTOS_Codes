@@ -1,0 +1,835 @@
+******************************************************************************
+                  TI ARM Linker PC v18.12.4                    
+******************************************************************************
+>> Linked Tue Jan  5 23:37:15 2021
+
+OUTPUT FILE NAME:   <pwm_led.out>
+ENTRY POINT SYMBOL: "resetISR"  address: 0000539d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  MAIN                  00000000   00040000  000056c1  0003a93f  R  X
+  INFO                  00200000   00004000  00000000  00004000  R  X
+  SRAM_CODE             01000000   00010000  000091b3  00006e4d  RW X
+  SRAM_DATA             20000000   00010000  000091b3  00006e4d  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000056c8   000056c8    r-x
+  00000000    00000000    00000144   00000144    r-- .intvecs
+  00000144    00000144    0000539a   0000539a    r-x .text
+  000054e0    000054e0    00000123   00000123    r-- .const
+  00005608    00005608    000000c0   000000c0    r-- .cinit
+20000000    20000000    00008ccb   00000000    rw-
+  20000000    20000000    000081bc   00000000    rw- .bss
+  200081bc    200081bc    00000b0f   00000000    rw- .data
+20009000    20009000    000000e8   00000000    rw-
+  20009000    20009000    000000e8   00000000    rw- .vtable
+2000fc00    2000fc00    00000400   00000000    rw-
+  2000fc00    2000fc00    00000400   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.text      0    00000144    0000539a     
+                  00000144    000002f8     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_sleep)
+                  0000043c    00000288                               : PowerMSP432.oem4f (.text:initPerfControl)
+                  000006c4    00000208                               : PWMTimerMSP432.oem4f (.text:PWMTimerMSP432_open)
+                  000008cc    000001d4     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:xQueueSemaphoreTake)
+                  00000aa0    000001b8                                                     : queue.obj (.text:xQueueGenericSend)
+                  00000c58    000001ac                                                     : heap_4.obj (.text:pvPortMalloc)
+                  00000e04    00000180                                                     : queue.obj (.text:xQueueReceive)
+                  00000f84    00000170     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_setConfig)
+                  000010f4    00000164     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvProcessReceivedCommands)
+                  00001258    00000140                                                     : tasks.obj (.text:xTaskIncrementTick)
+                  00001398    00000138                                                     : pthread.obj (.text:pthread_create)
+                  000014d0    00000128                                                     : queue.obj (.text:xQueueGenericSendFromISR)
+                  000015f8    00000120                                                     : tasks.obj (.text:prvInitialiseNewTask)
+                  00001718    0000011c                                                     : tasks.obj (.text:xTaskResumeAll)
+                  00001834    00000118                                                     : tasks.obj (.text:vTaskSuspend)
+                  0000194c    00000114     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:PWMTimerMSP432_setPeriod)
+                  00001a60    0000010e     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:xQueueGiveFromISR)
+                  00001b6e    00000002     ti_drivers_config.obj (.text:Board_initHook)
+                  00001b70    00000104     msp432p4xx_driverlib.lib : cs.o (.text:_CSComputeCLKFrequency)
+                  00001c74    00000104     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskPriorityDisinheritAfterTimeout)
+                  00001d78    00000100                                                     : tasks.obj (.text:vTaskDelete)
+                  00001e78    000000f8     msp432p4xx_driverlib.lib : cs.o (.text:CS_getDCOFrequency)
+                  00001f70    000000f6     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:xQueueReceiveFromISR)
+                  00002066    00000002     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:PWMTimerMSP432_init)
+                  00002068    000000e4     msp432p4xx_driverlib.lib : cs.o (.text:CS_startHFXTWithTimeout)
+                  0000214c    000000e0                              : cs.o (.text:CS_startLFXTWithTimeout)
+                  0000222c    000000dc                              : cs.o (.text:_CSGetHFXTFrequency)
+                  00002308    000000dc     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskSwitchContext)
+                  000023e4    000000da                                                     : portasm.obj (.text)
+                  000024be    00000002                                                     : PowerMSP432_freertos.obj (.text:PowerMSP432_initPolicy)
+                  000024c0    000000d8                                                     : tasks.obj (.text:xTaskPriorityInherit)
+                  00002598    000000d0                                                     : port.obj (.text:xPortStartScheduler)
+                  00002668    000000d0                                                     : tasks.obj (.text:xTaskPriorityDisinherit)
+                  00002738    000000c4                                                     : tasks.obj (.text:prvAddNewTaskToReadyList)
+                  000027fc    000000be                                                     : queue.obj (.text:prvCopyDataToQueue)
+                  000028ba    00000002                                                     : startup_msp432_ccs.obj (.text:defaultISR)
+                  000028bc    000000bc     pwm_led.obj (.text:mainThread)
+                  00002978    000000bc     freertos_builds_MSP_EXP432P401R_release_ccs.lib : heap_4.obj (.text:prvHeapInit)
+                  00002a34    000000bc                                                     : timers.obj (.text:prvSwitchTimerLists)
+                  00002af0    000000b8                                                     : queue.obj (.text:xQueueGenericReset)
+                  00002ba8    000000b4                                                     : tasks.obj (.text:xTaskCheckForTimeOut)
+                  00002c5c    000000b0                                                     : tasks.obj (.text:prvAddCurrentTaskToDelayedList)
+                  00002d0c    000000ae                                                     : queue.obj (.text:prvUnlockQueue)
+                  00002dba    00000002                                                     : startup_msp432_ccs.obj (.text:faultISR)
+                  00002dbc    000000ac     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_init)
+                  00002e68    000000a8     freertos_builds_MSP_EXP432P401R_release_ccs.lib : heap_4.obj (.text:prvInsertBlockIntoFreeList)
+                  00002f10    000000a8                                                     : heap_4.obj (.text:vPortFree)
+                  00002fb8    000000a8                                                     : queue.obj (.text:xQueueGenericCreate)
+                  00003060    000000a8                                                     : tasks.obj (.text:xTaskRemoveFromEventList)
+                  00003108    000000a4     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:PWMTimerMSP432_stop)
+                  000031ac    0000009c                               : PowerMSP432.oem4f (.text:Power_init)
+                  00003248    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  000032e4    0000009c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskStartScheduler)
+                  00003380    00000096     rtsv7M4_T_le_v4SPD16_eabi.lib : ull_div_t2.asm.obj (.text)
+                  00003416    00000002     freertos_builds_MSP_EXP432P401R_release_ccs.lib : startup_msp432_ccs.obj (.text:nmiISR)
+                  00003418    00000094     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:PWMTimerMSP432_setDuty)
+                  000034ac    00000094     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_getTLVInfo)
+                  00003540    00000088     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:PWMTimerMSP432_close)
+                  000035c8    00000088     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvProcessTimerOrBlockTask)
+                  00003650    00000084     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:PWMTimerMSP432_start)
+                  000036d4    00000084                               : PowerMSP432.oem4f (.text:restartHFXT)
+                  00003758    00000084     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:xTimerGenericCommand)
+                  000037dc    00000080     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_enableInterrupt)
+                  0000385c    00000080     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvProcessExpiredTimer)
+                  000038dc    0000007c     msp432p4xx_driverlib.lib : cs.o (.text:_CSGetDOCFrequency)
+                  00003958    0000007c     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:setConstraints)
+                  000039d4    0000007a     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.text:removeThreadKeys)
+                  00003a4e    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
+                  00003ac8    0000007a     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:xTaskCreate)
+                  00003b42    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : div0.asm.obj (.text)
+                  00003b44    00000078     drivers_msp432p401x.aem4f : TimerMSP432.oem4f (.text:TimerMSP432_allocateTimerResource)
+                  00003bbc    00000078     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvInsertTimerInActiveList)
+                  00003c34    00000078                                                     : port.obj (.text:vPortSetupTimerInterrupt)
+                  00003cac    00000074                                                     : tasks.obj (.text:prvInitialiseTaskLists)
+                  00003d20    00000074                                                     : port.obj (.text:vPortValidateInterruptPriority)
+                  00003d94    0000006a     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:perfChangeNotifyFxn)
+                  00003dfe    00000002     main_freertos.obj (.text:vApplicationMallocFailedHook)
+                  00003e00    00000068     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_hwiIntFxn)
+                  00003e68    00000068                               : PowerMSP432.oem4f (.text:PowerMSP432_getFreqs)
+                  00003ed0    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00003f38    00000068     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:initHw)
+                  00003fa0    00000066     freertos_builds_MSP_EXP432P401R_release_ccs.lib : list.obj (.text:vListInsert)
+                  00004006    00000002     --HOLE-- [fill = 0]
+                  00004008    00000064     main_freertos.obj (.text:main)
+                  0000406c    00000064     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:prvGetExpectedIdleTime)
+                  000040d0    00000062     msp432p4xx_driverlib.lib : cs.o (.text:_CSGetDividerValue)
+                  00004132    00000002     --HOLE-- [fill = 0]
+                  00004134    00000060     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_setCallback)
+                  00004194    00000060     freertos_builds_MSP_EXP432P401R_release_ccs.lib : HwiPMSP432_freertos.obj (.text:HwiP_create)
+                  000041f4    00000060                                                     : port.obj (.text:pxPortInitialiseStack)
+                  00004254    0000005c     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_registerInterrupt)
+                  000042b0    0000005c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:prvIdleTask)
+                  0000430c    0000005c                                                     : pthread.obj (.text:pthread_exit)
+                  00004368    0000005c                                                     : queue.obj (.text:vQueueWaitForMessageRestricted)
+                  000043c4    0000005c                                                     : tasks.obj (.text:vTaskDelay)
+                  00004420    00000058     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_write)
+                  00004478    00000054     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_setPriority)
+                  000044cc    00000054     drivers_msp432p401x.aem4f : TimerMSP432.oem4f (.text:TimerMSP432_freeTimerResource)
+                  00004520    00000054     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:xTimerCreateTimerTask)
+                  00004574    0000004c                                                     : timers.obj (.text:prvCheckForValidListAndQueue)
+                  000045c0    0000004c                                                     : tasks.obj (.text:prvCheckTasksWaitingTermination)
+                  0000460c    0000004c                                                     : port.obj (.text:vPortEnterCritical)
+                  00004658    0000004c                                                     : tasks.obj (.text:vTaskSetThreadLocalStoragePointer)
+                  000046a4    00000048                                                     : HwiPMSP432_freertos.obj (.text:HwiP_dispatch)
+                  000046ec    00000048     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_releaseConstraint)
+                  00004734    00000048     freertos_builds_MSP_EXP432P401R_release_ccs.lib : sleep.obj (.text:sleep)
+                  0000477c    00000048                                                     : list.obj (.text:uxListRemove)
+                  000047c4    00000044     drivers_msp432p401x.aem4f : PWM.oem4f (.text:PWM_init)
+                  00004808    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  0000484c    00000044     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:prvInitialiseNewQueue)
+                  00004890    00000040     drivers_msp432p401x.aem4f : PWM.oem4f (.text:PWM_open)
+                  000048d0    00000040     freertos_builds_MSP_EXP432P401R_release_ccs.lib : aeabi_portable.obj (.text:__aeabi_errno_addr)
+                  00004910    00000040     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:getDutyCounts)
+                  00004950    00000040                               : PWMTimerMSP432.oem4f (.text:getPeriodCounts)
+                  00004990    00000040     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskPlaceOnEventListRestricted)
+                  000049d0    0000003e                                                     : pthread.obj (.text:pthread_setcancelstate)
+                  00004a0e    0000003c                                                     : queue.obj (.text:prvCopyDataFromQueue)
+                  00004a4a    00000002     --HOLE-- [fill = 0]
+                  00004a4c    0000003c                                                     : tasks.obj (.text:pvTaskGetThreadLocalStoragePointer)
+                  00004a88    0000003c                                                     : sleep.obj (.text:usleep)
+                  00004ac4    0000003c                                                     : list.obj (.text:vListInsertEnd)
+                  00004b00    0000003a                                                     : PowerMSP432_freertos.obj (.text:PowerMSP432_sleepPolicy)
+                  00004b3a    00000002     --HOLE-- [fill = 0]
+                  00004b3c    00000038     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_toggle)
+                  00004b74    00000038                               : PowerMSP432.oem4f (.text:Power_setConstraint)
+                  00004bac    00000038                               : PowerMSP432.oem4f (.text:notify)
+                  00004be4    00000038     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvGetNextExpireTime)
+                  00004c1c    00000038                                                     : port.obj (.text:prvTaskExitError)
+                  00004c54    00000034                                                     : SemaphoreP_freertos.obj (.text:SemaphoreP_pend)
+                  00004c88    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00004cbc    00000034     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvSampleTimeNow)
+                  00004cf0    00000034                                                     : tasks.obj (.text:vTaskPlaceOnEventList)
+                  00004d24    00000030     msp432p4xx_driverlib.lib : cs.o (.text:CS_clearInterruptFlag)
+                  00004d54    00000030     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:mapPin)
+                  00004d84    00000030     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:prvResetNextTaskUnblockTime)
+                  00004db4    00000030                                                     : list.obj (.text:vListInitialise)
+                  00004de4    00000030                                                     : port.obj (.text:vPortExitCritical)
+                  00004e14    00000030                                                     : tasks.obj (.text:xTaskGetSchedulerState)
+                  00004e44    0000002c                                                     : HwiPMSP432_freertos.obj (.text:HwiP_disable)
+                  00004e70    0000002c                                                     : SemaphoreP_freertos.obj (.text:SemaphoreP_createBinary)
+                  00004e9c    0000002c                                                     : tasks.obj (.text:vTaskSetApplicationTaskTag)
+                  00004ec8    0000002c                                                     : port.obj (.text:xPortSysTickHandler)
+                  00004ef4    00000028     msp432p4xx_driverlib.lib : cs.o (.text:CS_getMCLK)
+                  00004f1c    00000028     freertos_builds_MSP_EXP432P401R_release_ccs.lib : HwiPMSP432_freertos.obj (.text:HwiP_inISR)
+                  00004f44    00000028     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_registerNotify)
+                  00004f6c    00000028                               : PowerMSP432.oem4f (.text:disableFaultCounter)
+                  00004f94    00000028                               : PowerMSP432.oem4f (.text:disableHFXT)
+                  00004fbc    00000028     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.text:pthread_attr_setschedparam)
+                  00004fe4    00000028                                                     : tasks.obj (.text:xTaskGetApplicationTaskTag)
+                  0000500c    00000026     drivers_msp432p401x.aem4f : List.oem4f (.text:List_put)
+                  00005032    00000026                               : List.oem4f (.text:List_remove)
+                  00005058    00000026     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.text:_pthread_cleanup_pop)
+                  0000507e    00000026                                                     : queue.obj (.text:prvIsQueueFull)
+                  000050a4    00000026     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:releaseConstraints)
+                  000050ca    00000024     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:prvGetDisinheritPriorityAfterTimeout)
+                  000050ee    00000024                                                     : queue.obj (.text:vQueueDelete)
+                  00005112    00000002     --HOLE-- [fill = 0]
+                  00005114    00000024                                                     : tasks.obj (.text:vTaskInternalSetTimeOutState)
+                  00005138    00000022                                                     : SemaphoreP_freertos.obj (.text:SemaphoreP_post)
+                  0000515a    00000022                                                     : pthread.obj (.text:pthread_attr_setdetachstate)
+                  0000517c    00000020     msp432p4xx_driverlib.lib : cs.o (.text:CS_setExternalClockSourceFrequency)
+                  0000519c    00000020     freertos_builds_MSP_EXP432P401R_release_ccs.lib : HwiPMSP432_freertos.obj (.text:HwiP_restore)
+                  000051bc    00000020     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_unregisterNotify)
+                  000051dc    00000020     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:prvIsQueueEmpty)
+                  000051fc    0000001e                                                     : HwiPMSP432_freertos.obj (.text:HwiP_Params_init)
+                  0000521a    0000001e                                                     : pthread.obj (.text:_pthread_runStub)
+                  00005238    0000001e     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:corroboratePeriod)
+                  00005256    00000002     --HOLE-- [fill = 0]
+                  00005258    0000001c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.text:pthread_attr_init)
+                  00005274    0000001c                                                     : tasks.obj (.text:pvTaskIncrementMutexHeldCount)
+                  00005290    0000001a                                                     : PTLS.obj (.text:PTLS_taskDeleteHook)
+                  000052aa    0000001a                                                     : timers.obj (.text:prvTimerTask)
+                  000052c4    00000018     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_disableNMISource)
+                  000052dc    00000018                              : sysctl_a.o (.text:SysCtl_A_enableNMISource)
+                  000052f4    00000018     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:corroborateDuty)
+                  0000530c    00000016     freertos_builds_MSP_EXP432P401R_release_ccs.lib : PTLS.obj (.text:PTLS_getBuf)
+                  00005322    00000016                                                     : PTLS.obj (.text:PTLS_setBuf)
+                  00005338    00000014     drivers_msp432p401x.aem4f : PWM.oem4f (.text:PWM_Params_init)
+                  0000534c    00000014                               : PowerMSP432.oem4f (.text:Power_idleFunc)
+                  00005360    00000014     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:prvDeleteTCB)
+                  00005374    00000014                                                     : pthread.obj (.text:pthread_attr_setstacksize)
+                  00005388    00000014                                                     : pthread.obj (.text:pthread_self)
+                  0000539c    00000014                                                     : startup_msp432_ccs.obj (.text:resetISR)
+                  000053b0    00000014                                                     : tasks.obj (.text:xTaskGetCurrentTaskHandle)
+                  000053c4    00000014                                                     : tasks.obj (.text:xTaskGetTickCount)
+                  000053d8    00000010     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:PowerMSP432_getNumPerfLevels)
+                  000053e8    00000010     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_getNMISourceStatus)
+                  000053f8    00000010                              : sysctl.o (.text:SysCtl_getNMISourceStatus)
+                  00005408    00000010     freertos_builds_MSP_EXP432P401R_release_ccs.lib : list.obj (.text:vListInitialiseItem)
+                  00005418    00000010                                                     : tasks.obj (.text:vTaskSuspendAll)
+                  00005428    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00005436    0000000c     ti_drivers_config.obj (.text:Board_init)
+                  00005442    0000000c     msp432p4xx_driverlib.lib : cpu.o (.text:CPU_cpsid)
+                  0000544e    0000000c                              : cpu.o (.text:CPU_cpsie)
+                  0000545a    00000002     --HOLE-- [fill = 0]
+                  0000545c    0000000c     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_getConstraintMask)
+                  00005468    0000000c                               : PowerMSP432.oem4f (.text:Power_getPerformanceLevel)
+                  00005474    0000000c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : SemaphoreP_freertos.obj (.text:SemaphoreP_delete)
+                  00005480    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  0000548c    0000000c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskMissedYield)
+                  00005498    0000000a     drivers_msp432p401x.aem4f : PWM.oem4f (.text:PWM_setDuty)
+                  000054a2    0000000a                               : PWM.oem4f (.text:PWM_start)
+                  000054ac    0000000a     freertos_builds_MSP_EXP432P401R_release_ccs.lib : PowerMSP432_freertos.obj (.text:PowerMSP432_updateFreqs)
+                  000054b6    0000000a     main_freertos.obj (.text:vApplicationStackOverflowHook)
+                  000054c0    0000000a     freertos_builds_MSP_EXP432P401R_release_ccs.lib : PowerMSP432_freertos.obj (.text:vPortSuppressTicksAndSleep)
+                  000054ca    00000006     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.text:PWMTimerMSP432_control)
+                  000054d0    00000006                               : PWMTimerMSP432.oem4f (.text:PWMTimerMSP432_setDutyAndPeriod)
+                  000054d6    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  000054da    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    000054e0    00000123     
+                  000054e0    00000050     msp432p4xx_driverlib.lib : interrupt.o (.const:g_pulRegs)
+                  00005530    00000038     ti_drivers_config.obj (.const:PowerMSP432_config)
+                  00005568    00000024     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.const:PWMTimerMSP432_fxnTable)
+                  0000558c    00000018                               : PWM.oem4f (.const:PWM_defaultParams)
+                  000055a4    00000014     ti_drivers_config.obj (.const:GPIOMSP432_config)
+                  000055b8    00000010     drivers_msp432p401x.aem4f : PWMTimerMSP432.oem4f (.const:pwmTimerBaseAddr)
+                  000055c8    0000000c     ti_drivers_config.obj (.const:PWM_config)
+                  000055d4    00000008     freertos_builds_MSP_EXP432P401R_release_ccs.lib : port.obj (.const)
+                  000055dc    00000008     msp432p4xx_driverlib.lib : interrupt.o (.const:g_pulEnRegs)
+                  000055e4    00000008     ti_drivers_config.obj (.const:pwmTimerMSP432HWAttrs)
+                  000055ec    00000006     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.const:.string:interruptType)
+                  000055f2    00000006                               : GPIOMSP432.oem4f (.const:.string:portInterruptIds)
+                  000055f8    00000004     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.const)
+                  000055fc    00000004                                                     : tasks.obj (.const)
+                  00005600    00000002                                                     : pthread.obj (.const:.string)
+                  00005602    00000001     ti_drivers_config.obj (.const)
+
+.cinit     0    00005608    000000c0     
+                  00005608    00000087     (.cinit..data.load) [load image, compression = lzss]
+                  0000568f    00000001     --HOLE-- [fill = 0]
+                  00005690    0000000c     (__TI_handler_table)
+                  0000569c    00000004     --HOLE-- [fill = 0]
+                  000056a0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000056a8    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
+                  000056b0    00000018     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.intvecs   0    00000000    00000144     
+                  00000000    00000144     freertos_builds_MSP_EXP432P401R_release_ccs.lib : startup_msp432_ccs.obj (.intvecs:retain)
+
+.bss       0    20000000    000081bc     UNINITIALIZED
+                  20000000    00008000     freertos_builds_MSP_EXP432P401R_release_ccs.lib : heap_4.obj (.bss:ucHeap)
+                  20008000    000000c8                                                     : tasks.obj (.bss:pxReadyTasksLists)
+                  200080c8    00000030     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.bss:gpioCallbackInfo)
+                  200080f8    00000014     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.bss:xActiveTimerList1)
+                  2000810c    00000014                                                     : timers.obj (.bss:xActiveTimerList2)
+                  20008120    00000014                                                     : tasks.obj (.bss:xDelayedTaskList1)
+                  20008134    00000014                                                     : tasks.obj (.bss:xDelayedTaskList2)
+                  20008148    00000014                                                     : tasks.obj (.bss:xPendingReadyList)
+                  2000815c    00000014                                                     : tasks.obj (.bss:xSuspendedTaskList)
+                  20008170    00000014                                                     : tasks.obj (.bss:xTasksWaitingTermination)
+                  20008184    0000000c     (.common:pwmTimerMSP432Objects)
+                  20008190    00000008                                                     : tasks.obj (.bss)
+                  20008198    00000008                                                     : timers.obj (.bss)
+                  200081a0    00000008     msp432p4xx_driverlib.lib : cs.o (.bss)
+                  200081a8    00000008     freertos_builds_MSP_EXP432P401R_release_ccs.lib : heap_4.obj (.bss:xStart)
+                  200081b0    00000004     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.bss)
+                  200081b4    00000004     freertos_builds_MSP_EXP432P401R_release_ccs.lib : aeabi_portable.obj (.bss:main_reent)
+                  200081b8    00000004     drivers_msp432p401x.aem4f : TimerMSP432.oem4f (.bss:timerState)
+
+.data      0    200081bc    00000b0f     UNINITIALIZED
+                  200081bc    00000800     freertos_builds_MSP_EXP432P401R_release_ccs.lib : HwiPMSP432_freertos.obj (.data:HwiP_dispatchTable)
+                  200089bc    00000140     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.data:PowerMSP432_perfLevels)
+                  20008afc    00000110                               : PWMTimerMSP432.oem4f (.data:pwmTimerStatus)
+                  20008c0c    00000034     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.data)
+                  20008c40    0000002c     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.data:PowerMSP432_module)
+                  20008c6c    00000018     freertos_builds_MSP_EXP432P401R_release_ccs.lib : heap_4.obj (.data)
+                  20008c84    00000018                                                     : port.obj (.data)
+                  20008c9c    00000014                                                     : pthread.obj (.data:defaultPthreadAttrs)
+                  20008cb0    0000000c                                                     : timers.obj (.data)
+                  20008cbc    00000004                                                     : HwiPMSP432_freertos.obj (.data)
+                  20008cc0    00000004     ti_drivers_config.obj (.data:gpioCallbackFunctions)
+                  20008cc4    00000004     ti_drivers_config.obj (.data:gpioPinConfigs)
+                  20008cc8    00000002     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.data)
+                  20008cca    00000001                               : PWM.oem4f (.data)
+
+.vtable    0    20009000    000000e8     UNINITIALIZED
+                  20009000    000000e8     msp432p4xx_driverlib.lib : interrupt.o (.vtable)
+
+.stack     0    2000fc00    00000400     UNINITIALIZED
+                  2000fc00    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000fc04    000003fc     --HOLE--
+
+.binit     0    00000000    00000000     
+
+MODULE SUMMARY
+
+       Module                       code    ro data   rw data
+       ------                       ----    -------   -------
+    .\
+       pwm_led.obj                  188     0         0      
+       main_freertos.obj            112     0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       300     0         0      
+                                                             
+    .\syscfg\
+       ti_drivers_config.obj        14      97        40     
+    +--+----------------------------+-------+---------+---------+
+       Total:                       14      97        40     
+                                                             
+    C:/Users/Jesus Minjares/Desktop/MSP432 FreeRTOS/freertos_builds_MSP_EXP432P401R_release_ccs/Debug/freertos_builds_MSP_EXP432P401R_release_ccs.lib
+       heap_4.obj                   952     0         65600  
+       tasks.obj                    4390    4         720    
+       HwiPMSP432_freertos.obj      314     0         4104   
+       queue.obj                    3182    0         0      
+       timers.obj                   1354    0         120    
+       pthread.obj                  798     6         40     
+       port.obj                     764     8         48     
+       startup_msp432_ccs.obj       26      324       0      
+       list.obj                     298     0         0      
+       portasm.obj                  218     0         0      
+       SemaphoreP_freertos.obj      142     0         0      
+       sleep.obj                    132     0         0      
+       PowerMSP432_freertos.obj     80      0         0      
+       aeabi_portable.obj           64      0         8      
+       PTLS.obj                     70      0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       12784   342       70640  
+                                                             
+    C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib
+       cs.o                         1522    0         16     
+       interrupt.o                  304     88        464    
+       sysctl_a.o                   212     0         0      
+       cpu.o                        24      0         0      
+       sysctl.o                     16      0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       2078    88        480    
+                                                             
+    C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/lib/drivers_msp432p401x.aem4f
+       PowerMSP432.oem4f            2196    0         728    
+       PWMTimerMSP432.oem4f         1992    52        544    
+       GPIOMSP432.oem4f             884     12        108    
+       TimerMSP432.oem4f            204     0         8      
+       PWM.oem4f                    172     24        2      
+       List.oem4f                   76      0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       5524    88        1390   
+                                                             
+    C:\ti\ccs930\ccs\tools\compiler\ti-cgt-arm_18.12.4.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj            156     0         0      
+       ull_div_t2.asm.obj           150     0         0      
+       memset_t2.asm.obj            122     0         0      
+       copy_decompress_lzss.c.obj   104     0         0      
+       autoinit.c.obj               68      0         0      
+       boot_cortex_m.c.obj          52      0         0      
+       copy_decompress_none.c.obj   14      0         0      
+       copy_zero_init.c.obj         12      0         0      
+       exit.c.obj                   4       0         0      
+       pre_init.c.obj               4       0         0      
+       div0.asm.obj                 2       0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       688     0         0      
+                                                             
+       Stack:                       0       0         2048   
+       Linker Generated:            0       187       0      
+    +--+----------------------------+-------+---------+---------+
+       Grand Total:                 21388   802       74598  
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000056b0 records: 3, size/record: 8, table size: 24
+	.data: load addr=00005608, load size=00000087 bytes, run addr=200081bc, run size=00000b0f bytes, compression=lzss
+	.bss: load addr=000056a0, load size=00000008 bytes, run addr=20000000, run size=000081bc bytes, compression=zero_init
+	.vtable: load addr=000056a8, load size=00000008 bytes, run addr=20009000, run size=000000e8 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00005690 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                               
+-------   ----                               
+00005437  Board_init                         
+00001b6f  Board_initHook                     
+000054db  C$$EXIT                            
+00005443  CPU_cpsid                          
+0000544f  CPU_cpsie                          
+00004d25  CS_clearInterruptFlag              
+00001e79  CS_getDCOFrequency                 
+00004ef5  CS_getMCLK                         
+0000517d  CS_setExternalClockSourceFrequency 
+00002069  CS_startHFXTWithTimeout            
+0000214d  CS_startLFXTWithTimeout            
+000055a4  GPIOMSP432_config                  
+00003e01  GPIO_hwiIntFxn                     
+00002dbd  GPIO_init                          
+00004135  GPIO_setCallback                   
+00000f85  GPIO_setConfig                     
+00004b3d  GPIO_toggle                        
+00004421  GPIO_write                         
+000051fd  HwiP_Params_init                   
+00004195  HwiP_create                        
+00004e45  HwiP_disable                       
+000046a5  HwiP_dispatch                      
+200081bc  HwiP_dispatchTable                 
+00004f1d  HwiP_inISR                         
+0000519d  HwiP_restore                       
+000037dd  Interrupt_enableInterrupt          
+00004255  Interrupt_registerInterrupt        
+00004479  Interrupt_setPriority              
+0000500d  List_put                           
+00005033  List_remove                        
+0000530d  PTLS_getBuf                        
+00005323  PTLS_setBuf                        
+00005291  PTLS_taskDeleteHook                
+00003541  PWMTimerMSP432_close               
+000054cb  PWMTimerMSP432_control             
+00005568  PWMTimerMSP432_fxnTable            
+00002067  PWMTimerMSP432_init                
+000006c5  PWMTimerMSP432_open                
+00003419  PWMTimerMSP432_setDuty             
+000054d1  PWMTimerMSP432_setDutyAndPeriod    
+0000194d  PWMTimerMSP432_setPeriod           
+00003651  PWMTimerMSP432_start               
+00003109  PWMTimerMSP432_stop                
+00005339  PWM_Params_init                    
+000055c8  PWM_config                         
+00005602  PWM_count                          
+0000558c  PWM_defaultParams                  
+000047c5  PWM_init                           
+00004891  PWM_open                           
+00005499  PWM_setDuty                        
+000054a3  PWM_start                          
+00005530  PowerMSP432_config                 
+00003e69  PowerMSP432_getFreqs               
+000053d9  PowerMSP432_getNumPerfLevels       
+000024bf  PowerMSP432_initPolicy             
+20008c40  PowerMSP432_module                 
+200089bc  PowerMSP432_perfLevels             
+00004b01  PowerMSP432_sleepPolicy            
+000054ad  PowerMSP432_updateFreqs            
+0000545d  Power_getConstraintMask            
+00005469  Power_getPerformanceLevel          
+0000534d  Power_idleFunc                     
+000031ad  Power_init                         
+00004f45  Power_registerNotify               
+000046ed  Power_releaseConstraint            
+00004b75  Power_setConstraint                
+00000145  Power_sleep                        
+000051bd  Power_unregisterNotify             
+00004e71  SemaphoreP_createBinary            
+00005475  SemaphoreP_delete                  
+00004c55  SemaphoreP_pend                    
+00005139  SemaphoreP_post                    
+000052c5  SysCtl_A_disableNMISource          
+000052dd  SysCtl_A_enableNMISource           
+000053e9  SysCtl_A_getNMISourceStatus        
+000034ad  SysCtl_A_getTLVInfo                
+000053f9  SysCtl_getNMISourceStatus          
+00003b45  TimerMSP432_allocateTimerResource  
+000044cd  TimerMSP432_freeTimerResource      
+4000480c  WDTCTL_SYM                         
+20010000  __STACK_END                        
+00000400  __STACK_SIZE                       
+000056b0  __TI_CINIT_Base                    
+000056c8  __TI_CINIT_Limit                   
+00005690  __TI_Handler_Table_Base            
+0000569c  __TI_Handler_Table_Limit           
+00004809  __TI_auto_init_nobinit_nopinit     
+00003ed1  __TI_decompress_lzss               
+00005429  __TI_decompress_none               
+ffffffff  __TI_pprof_out_hndl                
+ffffffff  __TI_prof_data_size                
+ffffffff  __TI_prof_data_start               
+00005608  __TI_static_base__                 
+00005481  __TI_zero_init                     
+000048d1  __aeabi_errno_addr                 
+00003b43  __aeabi_idiv0                      
+00003b43  __aeabi_ldiv0                      
+00003a4f  __aeabi_memclr                     
+00003a4f  __aeabi_memclr4                    
+00003a4f  __aeabi_memclr8                    
+00003249  __aeabi_memcpy                     
+00003249  __aeabi_memcpy4                    
+00003249  __aeabi_memcpy8                    
+00003a51  __aeabi_memset                     
+00003a51  __aeabi_memset4                    
+00003a51  __aeabi_memset8                    
+00003381  __aeabi_uldivmod                   
+ffffffff  __binit__                          
+ffffffff  __c_args__                         
+UNDEFED   __mpu_init                         
+2000fc00  __stack                            
+00004c89  _c_int00_noargs                    
+00005059  _pthread_cleanup_pop               
+UNDEFED   _system_post_cinit                 
+000054d7  _system_pre_init                   
+000054db  abort                              
+ffffffff  binit                              
+20009000  g_pfnRAMVectors                    
+20008cc0  gpioCallbackFunctions              
+20008cc4  gpioPinConfigs                     
+00000000  interruptVectors                   
+00004009  main                               
+000028bd  mainThread                         
+00003249  memcpy                             
+00003a57  memset                             
+00005259  pthread_attr_init                  
+0000515b  pthread_attr_setdetachstate        
+00004fbd  pthread_attr_setschedparam         
+00005375  pthread_attr_setstacksize          
+00001399  pthread_create                     
+0000430d  pthread_exit                       
+00005389  pthread_self                       
+000049d1  pthread_setcancelstate             
+00000c59  pvPortMalloc                       
+00004a4d  pvTaskGetThreadLocalStoragePointer 
+00005275  pvTaskIncrementMutexHeldCount      
+000055e4  pwmTimerMSP432HWAttrs              
+20008184  pwmTimerMSP432Objects              
+20008c0c  pxCurrentTCB                       
+000041f5  pxPortInitialiseStack              
+0000539d  resetISR                           
+00004735  sleep                              
+000055d4  ulMaxSyscallInterruptPriority      
+000023f5  ulPortGetIPSR                      
+00004a89  usleep                             
+0000477d  uxListRemove                       
+000055fc  uxTopUsedPriority                  
+00003dff  vApplicationMallocFailedHook       
+000054b7  vApplicationStackOverflowHook      
+00004db5  vListInitialise                    
+00005409  vListInitialiseItem                
+00003fa1  vListInsert                        
+00004ac5  vListInsertEnd                     
+000024b1  vPortEnableVFP                     
+0000460d  vPortEnterCritical                 
+00004de5  vPortExitCritical                  
+00002f11  vPortFree                          
+0000246d  vPortSVCHandler                    
+00003c35  vPortSetupTimerInterrupt           
+0000248d  vPortStartFirstTask                
+000054c1  vPortSuppressTicksAndSleep         
+00003d21  vPortValidateInterruptPriority     
+000050ef  vQueueDelete                       
+00004369  vQueueWaitForMessageRestricted     
+000043c5  vTaskDelay                         
+00001d79  vTaskDelete                        
+00005115  vTaskInternalSetTimeOutState       
+0000548d  vTaskMissedYield                   
+00004cf1  vTaskPlaceOnEventList              
+00004991  vTaskPlaceOnEventListRestricted    
+00001c75  vTaskPriorityDisinheritAfterTimeout
+00004e9d  vTaskSetApplicationTaskTag         
+00004659  vTaskSetThreadLocalStoragePointer  
+000032e5  vTaskStartScheduler                
+00001835  vTaskSuspend                       
+00005419  vTaskSuspendAll                    
+00002309  vTaskSwitchContext                 
+0000240d  xPortPendSVHandler                 
+00002599  xPortStartScheduler                
+00004ec9  xPortSysTickHandler                
+00002fb9  xQueueGenericCreate                
+00002af1  xQueueGenericReset                 
+00000aa1  xQueueGenericSend                  
+000014d1  xQueueGenericSendFromISR           
+00001a61  xQueueGiveFromISR                  
+00000e05  xQueueReceive                      
+00001f71  xQueueReceiveFromISR               
+000008cd  xQueueSemaphoreTake                
+00002ba9  xTaskCheckForTimeOut               
+00003ac9  xTaskCreate                        
+00004fe5  xTaskGetApplicationTaskTag         
+000053b1  xTaskGetCurrentTaskHandle          
+00004e15  xTaskGetSchedulerState             
+000053c5  xTaskGetTickCount                  
+00001259  xTaskIncrementTick                 
+00002669  xTaskPriorityDisinherit            
+000024c1  xTaskPriorityInherit               
+00003061  xTaskRemoveFromEventList           
+00001719  xTaskResumeAll                     
+00004521  xTimerCreateTimerTask              
+00003759  xTimerGenericCommand               
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                               
+-------   ----                               
+00000000  interruptVectors                   
+00000145  Power_sleep                        
+00000400  __STACK_SIZE                       
+000006c5  PWMTimerMSP432_open                
+000008cd  xQueueSemaphoreTake                
+00000aa1  xQueueGenericSend                  
+00000c59  pvPortMalloc                       
+00000e05  xQueueReceive                      
+00000f85  GPIO_setConfig                     
+00001259  xTaskIncrementTick                 
+00001399  pthread_create                     
+000014d1  xQueueGenericSendFromISR           
+00001719  xTaskResumeAll                     
+00001835  vTaskSuspend                       
+0000194d  PWMTimerMSP432_setPeriod           
+00001a61  xQueueGiveFromISR                  
+00001b6f  Board_initHook                     
+00001c75  vTaskPriorityDisinheritAfterTimeout
+00001d79  vTaskDelete                        
+00001e79  CS_getDCOFrequency                 
+00001f71  xQueueReceiveFromISR               
+00002067  PWMTimerMSP432_init                
+00002069  CS_startHFXTWithTimeout            
+0000214d  CS_startLFXTWithTimeout            
+00002309  vTaskSwitchContext                 
+000023f5  ulPortGetIPSR                      
+0000240d  xPortPendSVHandler                 
+0000246d  vPortSVCHandler                    
+0000248d  vPortStartFirstTask                
+000024b1  vPortEnableVFP                     
+000024bf  PowerMSP432_initPolicy             
+000024c1  xTaskPriorityInherit               
+00002599  xPortStartScheduler                
+00002669  xTaskPriorityDisinherit            
+000028bd  mainThread                         
+00002af1  xQueueGenericReset                 
+00002ba9  xTaskCheckForTimeOut               
+00002dbd  GPIO_init                          
+00002f11  vPortFree                          
+00002fb9  xQueueGenericCreate                
+00003061  xTaskRemoveFromEventList           
+00003109  PWMTimerMSP432_stop                
+000031ad  Power_init                         
+00003249  __aeabi_memcpy                     
+00003249  __aeabi_memcpy4                    
+00003249  __aeabi_memcpy8                    
+00003249  memcpy                             
+000032e5  vTaskStartScheduler                
+00003381  __aeabi_uldivmod                   
+00003419  PWMTimerMSP432_setDuty             
+000034ad  SysCtl_A_getTLVInfo                
+00003541  PWMTimerMSP432_close               
+00003651  PWMTimerMSP432_start               
+00003759  xTimerGenericCommand               
+000037dd  Interrupt_enableInterrupt          
+00003a4f  __aeabi_memclr                     
+00003a4f  __aeabi_memclr4                    
+00003a4f  __aeabi_memclr8                    
+00003a51  __aeabi_memset                     
+00003a51  __aeabi_memset4                    
+00003a51  __aeabi_memset8                    
+00003a57  memset                             
+00003ac9  xTaskCreate                        
+00003b43  __aeabi_idiv0                      
+00003b43  __aeabi_ldiv0                      
+00003b45  TimerMSP432_allocateTimerResource  
+00003c35  vPortSetupTimerInterrupt           
+00003d21  vPortValidateInterruptPriority     
+00003dff  vApplicationMallocFailedHook       
+00003e01  GPIO_hwiIntFxn                     
+00003e69  PowerMSP432_getFreqs               
+00003ed1  __TI_decompress_lzss               
+00003fa1  vListInsert                        
+00004009  main                               
+00004135  GPIO_setCallback                   
+00004195  HwiP_create                        
+000041f5  pxPortInitialiseStack              
+00004255  Interrupt_registerInterrupt        
+0000430d  pthread_exit                       
+00004369  vQueueWaitForMessageRestricted     
+000043c5  vTaskDelay                         
+00004421  GPIO_write                         
+00004479  Interrupt_setPriority              
+000044cd  TimerMSP432_freeTimerResource      
+00004521  xTimerCreateTimerTask              
+0000460d  vPortEnterCritical                 
+00004659  vTaskSetThreadLocalStoragePointer  
+000046a5  HwiP_dispatch                      
+000046ed  Power_releaseConstraint            
+00004735  sleep                              
+0000477d  uxListRemove                       
+000047c5  PWM_init                           
+00004809  __TI_auto_init_nobinit_nopinit     
+00004891  PWM_open                           
+000048d1  __aeabi_errno_addr                 
+00004991  vTaskPlaceOnEventListRestricted    
+000049d1  pthread_setcancelstate             
+00004a4d  pvTaskGetThreadLocalStoragePointer 
+00004a89  usleep                             
+00004ac5  vListInsertEnd                     
+00004b01  PowerMSP432_sleepPolicy            
+00004b3d  GPIO_toggle                        
+00004b75  Power_setConstraint                
+00004c55  SemaphoreP_pend                    
+00004c89  _c_int00_noargs                    
+00004cf1  vTaskPlaceOnEventList              
+00004d25  CS_clearInterruptFlag              
+00004db5  vListInitialise                    
+00004de5  vPortExitCritical                  
+00004e15  xTaskGetSchedulerState             
+00004e45  HwiP_disable                       
+00004e71  SemaphoreP_createBinary            
+00004e9d  vTaskSetApplicationTaskTag         
+00004ec9  xPortSysTickHandler                
+00004ef5  CS_getMCLK                         
+00004f1d  HwiP_inISR                         
+00004f45  Power_registerNotify               
+00004fbd  pthread_attr_setschedparam         
+00004fe5  xTaskGetApplicationTaskTag         
+0000500d  List_put                           
+00005033  List_remove                        
+00005059  _pthread_cleanup_pop               
+000050ef  vQueueDelete                       
+00005115  vTaskInternalSetTimeOutState       
+00005139  SemaphoreP_post                    
+0000515b  pthread_attr_setdetachstate        
+0000517d  CS_setExternalClockSourceFrequency 
+0000519d  HwiP_restore                       
+000051bd  Power_unregisterNotify             
+000051fd  HwiP_Params_init                   
+00005259  pthread_attr_init                  
+00005275  pvTaskIncrementMutexHeldCount      
+00005291  PTLS_taskDeleteHook                
+000052c5  SysCtl_A_disableNMISource          
+000052dd  SysCtl_A_enableNMISource           
+0000530d  PTLS_getBuf                        
+00005323  PTLS_setBuf                        
+00005339  PWM_Params_init                    
+0000534d  Power_idleFunc                     
+00005375  pthread_attr_setstacksize          
+00005389  pthread_self                       
+0000539d  resetISR                           
+000053b1  xTaskGetCurrentTaskHandle          
+000053c5  xTaskGetTickCount                  
+000053d9  PowerMSP432_getNumPerfLevels       
+000053e9  SysCtl_A_getNMISourceStatus        
+000053f9  SysCtl_getNMISourceStatus          
+00005409  vListInitialiseItem                
+00005419  vTaskSuspendAll                    
+00005429  __TI_decompress_none               
+00005437  Board_init                         
+00005443  CPU_cpsid                          
+0000544f  CPU_cpsie                          
+0000545d  Power_getConstraintMask            
+00005469  Power_getPerformanceLevel          
+00005475  SemaphoreP_delete                  
+00005481  __TI_zero_init                     
+0000548d  vTaskMissedYield                   
+00005499  PWM_setDuty                        
+000054a3  PWM_start                          
+000054ad  PowerMSP432_updateFreqs            
+000054b7  vApplicationStackOverflowHook      
+000054c1  vPortSuppressTicksAndSleep         
+000054cb  PWMTimerMSP432_control             
+000054d1  PWMTimerMSP432_setDutyAndPeriod    
+000054d7  _system_pre_init                   
+000054db  C$$EXIT                            
+000054db  abort                              
+00005530  PowerMSP432_config                 
+00005568  PWMTimerMSP432_fxnTable            
+0000558c  PWM_defaultParams                  
+000055a4  GPIOMSP432_config                  
+000055c8  PWM_config                         
+000055d4  ulMaxSyscallInterruptPriority      
+000055e4  pwmTimerMSP432HWAttrs              
+000055fc  uxTopUsedPriority                  
+00005602  PWM_count                          
+00005608  __TI_static_base__                 
+00005690  __TI_Handler_Table_Base            
+0000569c  __TI_Handler_Table_Limit           
+000056b0  __TI_CINIT_Base                    
+000056c8  __TI_CINIT_Limit                   
+20008184  pwmTimerMSP432Objects              
+200081bc  HwiP_dispatchTable                 
+200089bc  PowerMSP432_perfLevels             
+20008c0c  pxCurrentTCB                       
+20008c40  PowerMSP432_module                 
+20008cc0  gpioCallbackFunctions              
+20008cc4  gpioPinConfigs                     
+20009000  g_pfnRAMVectors                    
+2000fc00  __stack                            
+20010000  __STACK_END                        
+4000480c  WDTCTL_SYM                         
+ffffffff  __TI_pprof_out_hndl                
+ffffffff  __TI_prof_data_size                
+ffffffff  __TI_prof_data_start               
+ffffffff  __binit__                          
+ffffffff  __c_args__                         
+ffffffff  binit                              
+UNDEFED   __mpu_init                         
+UNDEFED   _system_post_cinit                 
+
+[201 symbols]
