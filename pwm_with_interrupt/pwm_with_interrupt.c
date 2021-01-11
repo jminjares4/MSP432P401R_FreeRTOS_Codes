@@ -76,7 +76,7 @@ void *mainThread(void *arg0){
             while(1){}
         }
         duty += inc; //increment by 10%
-        if(duty >= 3000){ //check for out of bound
+        if(duty >= period){ //check for out of bound
             duty = 0;
         }
         usleep(500000); //.5 second
