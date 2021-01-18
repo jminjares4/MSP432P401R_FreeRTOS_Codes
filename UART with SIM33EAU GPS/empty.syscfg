@@ -1,0 +1,80 @@
+// These arguments were used when this file was generated. They will be automatically applied on subsequent loads 
+// via the GUI or CLI invocations. Run CLI with '--help' for additional information on how to override these arguments.
+// @cliArgs --board "/ti/boards/MSP_EXP432P401R" --product "simplelink_msp432p4_sdk@3.40.01.02"
+// @versions {"data":"2019103101","timestamp":"2019103101","tool":"1.3.1030","templates":"2019103101"}
+
+var RTOS = scripting.addModule("/ti/drivers/RTOS");
+var GPIO = scripting.addModule("/ti/drivers/GPIO");
+var GPIO1 = GPIO.addInstance();
+var Display = scripting.addModule("/ti/display/Display", {}, false);
+var Display1 = Display.addInstance();
+var UART = scripting.addModule("/ti/drivers/UART", {}, false);
+var UART1 = UART.addInstance();
+var Timer = scripting.addModule("/ti/drivers/Timer", {}, false);
+var Timer1 = Timer.addInstance();
+var GPIO2 = GPIO.addInstance();
+// name - Select the RTOS being used
+RTOS.name = "FreeRTOS";
+// Interrupt Priority - Hardware interrupt priority
+GPIO.interruptPriority = "5";
+var Power = scripting.addModule("/ti/drivers/Power", {}, false);
+// Name
+Power.performanceLevel3.$name = "ti_drivers_power_PowerMSP432PerfLevels0";
+// Name
+Power.performanceLevel2.$name = "ti_drivers_power_PowerMSP432PerfLevels1";
+// Name
+Power.performanceLevel1.$name = "ti_drivers_power_PowerMSP432PerfLevels2";
+// Name
+Power.performanceLevel0.$name = "ti_drivers_power_PowerMSP432PerfLevels3";
+var Board = scripting.addModule("/ti/drivers/Board", {}, false);
+var DriverLib = scripting.addModule("/ti/devices/DriverLib", {}, false);
+// Use Hardware - Select the hardware to use, or 'None' to use available header pins
+GPIO1.$hardware = system.deviceData.board.components.LED1_RED;
+// Name - The C/C++ identifier used in applications as the index parameter passed to GPIO runtime APIs
+GPIO1.$name = "CONFIG_GPIO_LED_0";
+// Name - The C/C++ identifier used in applications as the index parameter passed to Display runtime APIs
+Display1.$name = "CONFIG_Display_0";
+// Use Hardware - Select the hardware to use, or 'None' to use available header pins
+Display1.$hardware = system.deviceData.board.components.XDS110UART;
+// Name - The C/C++ identifier used in applications as the index parameter passed to UART runtime APIs
+Display1.uart.$name = "CONFIG_UART_0";
+// Name
+Display1.uart.uart.$name = "MyUART1";
+// Name - The C/C++ identifier used in applications as the index parameter passed to UART runtime APIs
+UART1.$name = "SIM33EAU";
+// Data Direction
+UART1.dataDirection = "Receive Only";
+// Baud Rates - The set of baud rates that are used by this instance. On some devices, these rates are used to pre-compute a table of clock dividers necessary for each rate.
+UART1.baudRates = [9600];
+// Ring Buffer Size - Number of bytes in the ring buffer
+UART1.ringBufferSize = 128;
+// Name
+UART1.uart.$name = "MyUART1";
+// Assign pin
+UART1.uart.rxPin.$assign = "boosterpack.3"; // P3.2
+// Name - The C/C++ identifier used in applications as the index parameter passed to Timer runtime APIs
+Timer1.$name = "CONFIG_TIMER_A0";
+// Interrupt Priority - Timer Interrupt Priority
+Timer1.interruptPriority = "6";
+// Name
+Timer1.timer.$name = "MyTIMER_A1";
+// Name - The C/C++ identifier used in applications as the index parameter passed to GPIO runtime APIs
+GPIO2.$name = "SWITCH";
+// Use Hardware - Select the hardware to use, or 'None' to use available header pins
+GPIO2.$hardware = system.deviceData.board.components.S2;
+// Mode - Select the GPIO mode
+GPIO2.mode = "Dynamic";
+// Suggest solution
+GPIO1.gpioPin.$suggestSolution = "4";
+// Suggest solution
+Display1.uart.uart.$suggestSolution = "EUSCI_A0";
+// Suggest solution
+Display1.uart.uart.txPin.$suggestSolution = "7";
+// Suggest solution
+Display1.uart.uart.rxPin.$suggestSolution = "6";
+// Suggest solution
+UART1.uart.$suggestSolution = "EUSCI_A1";
+// Suggest solution
+Timer1.timer.$suggestSolution = "Timer_A0";
+// Suggest solution
+GPIO2.gpioPin.$suggestSolution = "8";
