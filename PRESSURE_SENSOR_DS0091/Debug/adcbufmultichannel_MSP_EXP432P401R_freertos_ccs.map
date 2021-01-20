@@ -1,0 +1,1155 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.0                     
+******************************************************************************
+>> Linked Sun Jan 17 23:04:38 2021
+
+OUTPUT FILE NAME:   <adcbufmultichannel_MSP_EXP432P401R_freertos_ccs.out>
+ENTRY POINT SYMBOL: "resetISR"  address: 00007bf5
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  MAIN                  00000000   00040000  000081c5  00037e3b  R  X
+  INFO                  00200000   00004000  00000000  00004000  R  X
+  SRAM_CODE             01000000   00010000  0000978f  00006871  RW X
+  SRAM_DATA             20000000   00010000  0000978f  00006871  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000081c8   000081c8    r-x
+  00000000    00000000    00000144   00000144    r-- .intvecs
+  00000144    00000144    00007c9a   00007c9a    r-x .text
+  00007de0    00007de0    000002f7   000002f7    r-- .const
+  000080d8    000080d8    000000f0   000000f0    r-- .cinit
+20000000    20000000    000092aa   00000000    rw-
+  20000000    20000000    00008849   00000000    rw- .bss
+  2000884c    2000884c    00000a5e   00000000    rw- .data
+20009400    20009400    000000e8   00000000    rw-
+  20009400    20009400    000000e8   00000000    rw- .vtable
+2000fc00    2000fc00    00000400   00000000    rw-
+  2000fc00    2000fc00    00000400   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.text      0    00000144    00007c9a     
+                  00000144    000004a4     freertos_builds_MSP_EXP432P401R_release_ccs.lib : SystemP_freertos.obj (.text:doPrint)
+                  000005e8    00000380     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:primeConvert)
+                  00000968    000002f8                               : PowerMSP432.oem4f (.text:Power_sleep)
+                  00000c60    000002d0                               : UARTMSP432.oem4f (.text:UARTMSP432_open)
+                  00000f30    00000288                               : PowerMSP432.oem4f (.text:initPerfControl)
+                  000011b8    000001d0     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:xQueueSemaphoreTake)
+                  00001388    000001cc     adcBufMultiChannel.obj (.text:mainThread)
+                  00001554    000001b8     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:xQueueGenericSend)
+                  0000170c    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.asm.obj (.text)
+                  000018c2    00000002     ti_drivers_config.obj (.text:Board_initHook)
+                  000018c4    00000184     freertos_builds_MSP_EXP432P401R_release_ccs.lib : heap_4.obj (.text:pvPortMalloc)
+                  00001a48    0000017c                                                     : queue.obj (.text:xQueueReceive)
+                  00001bc4    00000164     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:initHw)
+                  00001d28    00000164     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvProcessReceivedCommands)
+                  00001e8c    00000160     msp432p4xx_driverlib.lib : adc14.o (.text:_getIndexForMemRegister)
+                  00001fec    00000140     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:ADCBufMSP432_open)
+                  0000212c    00000140     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:xTaskIncrementTick)
+                  0000226c    00000138                                                     : pthread.obj (.text:pthread_create)
+                  000023a4    00000130     drivers_msp432p401x.aem4f : UDMAMSP432.oem4f (.text:setupInterrupt)
+                  000024d4    00000128     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:prvInitialiseNewTask)
+                  000025fc    0000011c     msp432p4xx_driverlib.lib : uart.o (.text:UART_initModule)
+                  00002718    0000011c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:xTaskResumeAll)
+                  00002834    0000010a                                                     : queue.obj (.text:xQueueGenericSendFromISR)
+                  0000293e    00000002     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_clear)
+                  00002940    00000104     msp432p4xx_driverlib.lib : cs.o (.text:_CSComputeCLKFrequency)
+                  00002a44    00000104     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskPriorityDisinheritAfterTimeout)
+                  00002b48    00000100                                                     : tasks.obj (.text:vTaskDelete)
+                  00002c48    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.asm.obj (.text)
+                  00002d44    000000fc     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskSuspend)
+                  00002e40    000000f8     msp432p4xx_driverlib.lib : cs.o (.text:CS_getDCOFrequency)
+                  00002f38    000000f0                              : dma.o (.text:DMA_setChannelTransfer)
+                  00003028    000000f0     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:xQueueGiveFromISR)
+                  00003118    000000e4     msp432p4xx_driverlib.lib : cs.o (.text:CS_startHFXTWithTimeout)
+                  000031fc    000000e0     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:ADCBufMSP432_hwiIntFxn)
+                  000032dc    000000e0     msp432p4xx_driverlib.lib : cs.o (.text:CS_startLFXTWithTimeout)
+                  000033bc    000000e0     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:xTaskPriorityDisinherit)
+                  0000349c    000000dc     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_readPolling)
+                  00003578    000000dc                               : UDMAMSP432.oem4f (.text:UDMAMSP432_close)
+                  00003654    000000dc     msp432p4xx_driverlib.lib : cs.o (.text:_CSGetHFXTFrequency)
+                  00003730    000000dc     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskSwitchContext)
+                  0000380c    000000da                                                     : portasm.obj (.text)
+                  000038e6    000000d8                                                     : queue.obj (.text:xQueueReceiveFromISR)
+                  000039be    00000002     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_clearLines)
+                  000039c0    000000d4     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:xTaskPriorityInherit)
+                  00003a94    000000d0                                                     : port.obj (.text:xPortStartScheduler)
+                  00003b64    000000cc     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:ADCBufMSP432_control)
+                  00003c30    000000ca                               : UARTMSP432.oem4f (.text:UARTMSP432_hwiIntFxn)
+                  00003cfa    00000002     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_init)
+                  00003cfc    000000c4     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:prvAddNewTaskToReadyList)
+                  00003dc0    000000bc                                                     : queue.obj (.text:prvCopyDataToQueue)
+                  00003e7c    000000bc                                                     : heap_4.obj (.text:prvHeapInit)
+                  00003f38    000000bc                                                     : timers.obj (.text:prvSwitchTimerLists)
+                  00003ff4    000000b8     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:initHw)
+                  000040ac    000000b8                               : UARTMSP432.oem4f (.text:readTaskCallback)
+                  00004164    000000b8     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:xQueueGenericReset)
+                  0000421c    000000b6                                                     : SystemP_freertos.obj (.text:formatNum)
+                  000042d2    00000002     msp432p4xx_driverlib.lib : interrupt.o (.text:IntDefaultHandler)
+                  000042d4    000000b4                              : adc14.o (.text:ADC14_configureConversionMemory)
+                  00004388    000000b4                              : adc14.o (.text:ADC14_configureMultiSequenceMode)
+                  0000443c    000000b4     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_control)
+                  000044f0    000000b4                               : UARTMSP432.oem4f (.text:UARTMSP432_writePolling)
+                  000045a4    000000b0     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:prvAddCurrentTaskToDelayedList)
+                  00004654    000000b0                                                     : tasks.obj (.text:xTaskCheckForTimeOut)
+                  00004704    000000ae                                                     : queue.obj (.text:prvUnlockQueue)
+                  000047b2    000000a8     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_write)
+                  0000485a    00000002     freertos_builds_MSP_EXP432P401R_release_ccs.lib : PowerMSP432_freertos.obj (.text:PowerMSP432_initPolicy)
+                  0000485c    000000a8                                                     : heap_4.obj (.text:prvInsertBlockIntoFreeList)
+                  00004904    000000a8     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readTaskBlocking)
+                  000049ac    000000a8     freertos_builds_MSP_EXP432P401R_release_ccs.lib : heap_4.obj (.text:vPortFree)
+                  00004a54    000000a8                                                     : tasks.obj (.text:xTaskRemoveFromEventList)
+                  00004afc    000000a0                                                     : ClockP_freertos.obj (.text:ClockP_create)
+                  00004b9c    000000a0     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readIsrTextCallback)
+                  00004c3c    0000009c                               : PowerMSP432.oem4f (.text:Power_init)
+                  00004cd8    0000009c                               : UDMAMSP432.oem4f (.text:UDMAMSP432_setupPingPongTransfer)
+                  00004d74    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00004e10    00000094     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_getTLVInfo)
+                  00004ea4    00000094     drivers_msp432p401x.aem4f : UDMAMSP432.oem4f (.text:UDMAMSP432_init)
+                  00004f38    00000094                               : UDMAMSP432.oem4f (.text:UDMAMSP432_open)
+                  00004fcc    00000094     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskStartScheduler)
+                  00005060    00000092     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_close)
+                  000050f2    00000092                               : UARTMSP432.oem4f (.text:writeData)
+                  00005184    0000008c                               : UARTMSP432.oem4f (.text:readIsrTextBlocking)
+                  00005210    00000088     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvProcessTimerOrBlockTask)
+                  00005298    00000086     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_cmp_t2.asm.obj (.text:__aeabi_cdcmple)
+                  0000531e    00000002     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_init)
+                  00005320    00000084                               : UDMAMSP432.oem4f (.text:UDMAMSP432_setupTransfer)
+                  000053a4    00000084                               : PowerMSP432.oem4f (.text:restartHFXT)
+                  00005428    00000084     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:xTimerGenericCommand)
+                  000054ac    00000080     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_disableInterrupt)
+                  0000552c    00000080                              : interrupt.o (.text:Interrupt_enableInterrupt)
+                  000055ac    00000080     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvProcessExpiredTimer)
+                  0000562c    0000007c     msp432p4xx_driverlib.lib : cs.o (.text:_CSGetDOCFrequency)
+                  000056a8    0000007a     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.text:removeThreadKeys)
+                  00005722    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
+                  0000579c    0000007a     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:xTaskCreate)
+                  00005816    00000002                                                     : startup_msp432_ccs.obj (.text:defaultISR)
+                  00005818    00000078     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:ADCBufMSP432_close)
+                  00005890    00000078                               : TimerMSP432.oem4f (.text:TimerMSP432_allocateTimerResource)
+                  00005908    00000078     adcBufMultiChannel.obj (.text:adcBufCallback)
+                  00005980    00000078     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvInsertTimerInActiveList)
+                  000059f8    00000078                                                     : port.obj (.text:vPortSetupTimerInterrupt)
+                  00005a70    00000074                                                     : tasks.obj (.text:prvInitialiseTaskLists)
+                  00005ae4    00000074                                                     : port.obj (.text:vPortValidateInterruptPriority)
+                  00005b58    00000070     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_writeCancel)
+                  00005bc8    00000070                               : ADCBufMSP432.oem4f (.text:configDMA)
+                  00005c38    00000070     freertos_builds_MSP_EXP432P401R_release_ccs.lib : ClockP_freertos.obj (.text:setClockObjTimeout)
+                  00005ca8    00000068     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:ADCBufMSP432_convert)
+                  00005d10    00000068                               : PowerMSP432.oem4f (.text:PowerMSP432_getFreqs)
+                  00005d78    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00005de0    00000066     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:completeDMAConversion)
+                  00005e46    00000066     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvInitialiseNewTimer)
+                  00005eac    00000066                                                     : list.obj (.text:vListInsert)
+                  00005f12    00000002                                                     : startup_msp432_ccs.obj (.text:faultISR)
+                  00005f14    00000064                                                     : ClockP_freertos.obj (.text:ClockP_stop)
+                  00005f78    00000064     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:completeConversion)
+                  00005fdc    00000064     main_freertos.obj (.text:main)
+                  00006040    00000064     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:prvGetExpectedIdleTime)
+                  000060a4    00000062     msp432p4xx_driverlib.lib : cs.o (.text:_CSGetDividerValue)
+                  00006106    00000002     freertos_builds_MSP_EXP432P401R_release_ccs.lib : startup_msp432_ccs.obj (.text:nmiISR)
+                  00006108    00000060                                                     : HwiPMSP432_freertos.obj (.text:HwiP_create)
+                  00006168    00000060                                                     : port.obj (.text:pxPortInitialiseStack)
+                  000061c8    00000060                                                     : queue.obj (.text:xQueueGenericCreate)
+                  00006228    0000005c     display.aem4f : Display.oem4f (.text:Display_doOpen)
+                  00006284    0000005c     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_registerInterrupt)
+                  000062e0    0000005c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:prvIdleTask)
+                  0000633c    0000005c                                                     : pthread.obj (.text:pthread_exit)
+                  00006398    0000005c                                                     : queue.obj (.text:vQueueWaitForMessageRestricted)
+                  000063f4    00000058     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_unpendInterrupt)
+                  0000644c    00000058     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readIsrBinaryBlocking)
+                  000064a4    00000058     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:xQueueCreateCountingSemaphore)
+                  000064fc    00000056                                                     : SemaphoreP_freertos.obj (.text:SemaphoreP_create)
+                  00006552    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : div0.asm.obj (.text)
+                  00006554    00000054     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:ADCBufMSP432DMA_hwiIntFxn)
+                  000065a8    00000054     freertos_builds_MSP_EXP432P401R_release_ccs.lib : ClockP_freertos.obj (.text:ClockP_delete)
+                  000065fc    00000054     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_setPriority)
+                  00006650    00000054     drivers_msp432p401x.aem4f : TimerMSP432.oem4f (.text:TimerMSP432_freeTimerResource)
+                  000066a4    00000054                               : UDMAMSP432.oem4f (.text:UDMAMSP432_PingPongToggleBuffer)
+                  000066f8    00000054     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:xTimerCreateTimerTask)
+                  0000674c    00000050     drivers_msp432p401x.aem4f : UDMAMSP432.oem4f (.text:UDMAMSP432_hwiFxn)
+                  0000679c    00000050     freertos_builds_MSP_EXP432P401R_release_ccs.lib : semaphore.obj (.text:sem_init)
+                  000067ec    0000004c                                                     : timers.obj (.text:prvCheckForValidListAndQueue)
+                  00006838    0000004c                                                     : tasks.obj (.text:prvCheckTasksWaitingTermination)
+                  00006884    0000004c     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readIsrBinaryCallback)
+                  000068d0    0000004c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : port.obj (.text:vPortEnterCritical)
+                  0000691c    0000004c                                                     : tasks.obj (.text:vTaskSetThreadLocalStoragePointer)
+                  00006968    0000004a     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_open)
+                  000069b2    00000002     main_freertos.obj (.text:vApplicationMallocFailedHook)
+                  000069b4    00000048     freertos_builds_MSP_EXP432P401R_release_ccs.lib : HwiPMSP432_freertos.obj (.text:HwiP_dispatch)
+                  000069fc    00000048     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_releaseConstraint)
+                  00006a44    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_toi_t2.asm.obj (.text)
+                  00006a8c    00000048     freertos_builds_MSP_EXP432P401R_release_ccs.lib : list.obj (.text:uxListRemove)
+                  00006ad4    00000046     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:ADCBufMSP432_convertAdjustedToMicroVolts)
+                  00006b1a    00000046     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_vprintf)
+                  00006b60    00000046     drivers_msp432p401x.aem4f : RingBuf.oem4f (.text:RingBuf_put)
+                  00006ba6    00000002     --HOLE-- [fill = 0]
+                  00006ba8    00000044                               : ADCBufMSP432.oem4f (.text:ADCBufMSP432_init)
+                  00006bec    00000044                               : ADCBuf.oem4f (.text:ADCBuf_init)
+                  00006c30    00000044                               : UART.oem4f (.text:UART_init)
+                  00006c74    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00006cb8    00000044     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:prvInitialiseNewQueue)
+                  00006cfc    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_tou_t2.asm.obj (.text)
+                  00006d40    00000040     drivers_msp432p401x.aem4f : ADCBuf.oem4f (.text:ADCBuf_open)
+                  00006d80    00000040                               : RingBuf.oem4f (.text:RingBuf_get)
+                  00006dc0    00000040                               : UARTMSP432.oem4f (.text:UARTMSP432_read)
+                  00006e00    00000040                               : UART.oem4f (.text:UART_open)
+                  00006e40    00000040     freertos_builds_MSP_EXP432P401R_release_ccs.lib : aeabi_portable.obj (.text:__aeabi_errno_addr)
+                  00006e80    00000040     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:perfChangeNotifyFxn)
+                  00006ec0    00000040     rtsv7M4_T_le_v4SPD16_eabi.lib : u_divt2.asm.obj (.text)
+                  00006f00    00000040     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskPlaceOnEventListRestricted)
+                  00006f40    0000003e                                                     : ClockP_freertos.obj (.text:ClockP_callbackFxn)
+                  00006f7e    0000003e                                                     : pthread.obj (.text:pthread_setcancelstate)
+                  00006fbc    0000003e                                                     : semaphore.obj (.text:sem_post)
+                  00006ffa    0000003c                                                     : queue.obj (.text:prvCopyDataFromQueue)
+                  00007036    00000002     --HOLE-- [fill = 0]
+                  00007038    0000003c                                                     : tasks.obj (.text:prvResetNextTaskUnblockTime)
+                  00007074    0000003c                                                     : tasks.obj (.text:pvTaskGetThreadLocalStoragePointer)
+                  000070b0    0000003c                                                     : list.obj (.text:vListInsertEnd)
+                  000070ec    0000003c                                                     : timers.obj (.text:xTimerCreate)
+                  00007128    0000003a                                                     : PowerMSP432_freertos.obj (.text:PowerMSP432_sleepPolicy)
+                  00007162    00000002     --HOLE-- [fill = 0]
+                  00007164    00000038     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_setConstraint)
+                  0000719c    00000038                               : PowerMSP432.oem4f (.text:notify)
+                  000071d4    00000038     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvGetNextExpireTime)
+                  0000720c    00000038                                                     : port.obj (.text:prvTaskExitError)
+                  00007244    00000036     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_readCancel)
+                  0000727a    00000034     freertos_builds_MSP_EXP432P401R_release_ccs.lib : SemaphoreP_freertos.obj (.text:SemaphoreP_pend)
+                  000072ae    00000002     --HOLE-- [fill = 0]
+                  000072b0    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  000072e4    00000034     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.text:prvSampleTimeNow)
+                  00007318    00000034                                                     : tasks.obj (.text:vTaskPlaceOnEventList)
+                  0000734c    00000030     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:ADCBufMSP432_convertCancel)
+                  0000737c    00000030     msp432p4xx_driverlib.lib : cs.o (.text:CS_clearInterruptFlag)
+                  000073ac    00000030     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:mapPin)
+                  000073dc    00000030     freertos_builds_MSP_EXP432P401R_release_ccs.lib : list.obj (.text:vListInitialise)
+                  0000740c    00000030                                                     : port.obj (.text:vPortExitCritical)
+                  0000743c    00000030                                                     : tasks.obj (.text:xTaskGetSchedulerState)
+                  0000746c    0000002e                                                     : SystemP_freertos.obj (.text:putChar)
+                  0000749a    0000002e                                                     : timers.obj (.text:pvTimerGetTimerID)
+                  000074c8    0000002e     rtsv7M4_T_le_v4SPD16_eabi.lib : i_tofd_t2.asm.obj (.text)
+                  000074f6    00000002     --HOLE-- [fill = 0]
+                  000074f8    0000002c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : HwiPMSP432_freertos.obj (.text:HwiP_disable)
+                  00007524    0000002c                                                     : SemaphoreP_freertos.obj (.text:SemaphoreP_createBinary)
+                  00007550    0000002c                                                     : tasks.obj (.text:vTaskSetApplicationTaskTag)
+                  0000757c    0000002c                                                     : port.obj (.text:xPortSysTickHandler)
+                  000075a8    0000002a     display.aem4f : Display.oem4f (.text:Display_doPrintf)
+                  000075d2    00000002     --HOLE-- [fill = 0]
+                  000075d4    00000028     msp432p4xx_driverlib.lib : adc14.o (.text:ADC14_getResult)
+                  000075fc    00000028                              : cs.o (.text:CS_getMCLK)
+                  00007624    00000028     display.aem4f : Display.oem4f (.text:Display_doInit)
+                  0000764c    00000028     freertos_builds_MSP_EXP432P401R_release_ccs.lib : HwiPMSP432_freertos.obj (.text:HwiP_inISR)
+                  00007674    00000028     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_registerNotify)
+                  0000769c    00000028                               : PowerMSP432.oem4f (.text:disableFaultCounter)
+                  000076c4    00000028                               : PowerMSP432.oem4f (.text:disableHFXT)
+                  000076ec    00000028                               : UARTMSP432.oem4f (.text:findBaudDividerIndex)
+                  00007714    00000028     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.text:pthread_attr_setschedparam)
+                  0000773c    00000028                                                     : tasks.obj (.text:xTaskGetApplicationTaskTag)
+                  00007764    00000026     drivers_msp432p401x.aem4f : List.oem4f (.text:List_put)
+                  0000778a    00000026                               : List.oem4f (.text:List_remove)
+                  000077b0    00000026     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.text:_pthread_cleanup_pop)
+                  000077d6    00000026                                                     : queue.obj (.text:prvIsQueueFull)
+                  000077fc    00000024                                                     : queue.obj (.text:prvGetDisinheritPriorityAfterTimeout)
+                  00007820    00000024                                                     : queue.obj (.text:vQueueDelete)
+                  00007844    00000024                                                     : tasks.obj (.text:vTaskInternalSetTimeOutState)
+                  00007868    00000022                                                     : SemaphoreP_freertos.obj (.text:SemaphoreP_post)
+                  0000788a    00000022                                                     : SystemP_freertos.obj (.text:SystemP_vsnprintf)
+                  000078ac    00000022                                                     : pthread.obj (.text:pthread_attr_setdetachstate)
+                  000078ce    00000002     --HOLE-- [fill = 0]
+                  000078d0    00000020     msp432p4xx_driverlib.lib : cs.o (.text:CS_setExternalClockSourceFrequency)
+                  000078f0    00000020     freertos_builds_MSP_EXP432P401R_release_ccs.lib : HwiPMSP432_freertos.obj (.text:HwiP_restore)
+                  00007910    00000020     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_unregisterNotify)
+                  00007930    00000020                               : RingBuf.oem4f (.text:RingBuf_peek)
+                  00007950    00000020     freertos_builds_MSP_EXP432P401R_release_ccs.lib : queue.obj (.text:prvIsQueueEmpty)
+                  00007970    00000020                                                     : semaphore.obj (.text:semaphorePend)
+                  00007990    0000001e                                                     : ClockP_freertos.obj (.text:ClockP_start)
+                  000079ae    0000001e                                                     : HwiPMSP432_freertos.obj (.text:HwiP_Params_init)
+                  000079cc    0000001e                                                     : pthread.obj (.text:_pthread_runStub)
+                  000079ea    0000001c                                                     : ClockP_freertos.obj (.text:ClockP_Params_init)
+                  00007a06    00000002     --HOLE-- [fill = 0]
+                  00007a08    0000001c     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_unregisterInterrupt)
+                  00007a24    0000001c     ti_drivers_config.obj (.text:dmaErrorFxn)
+                  00007a40    0000001c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.text:pthread_attr_init)
+                  00007a5c    0000001c                                                     : tasks.obj (.text:pvTaskIncrementMutexHeldCount)
+                  00007a78    0000001a                                                     : PTLS.obj (.text:PTLS_taskDeleteHook)
+                  00007a92    0000001a                                                     : timers.obj (.text:prvTimerTask)
+                  00007aac    00000018     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_disableNMISource)
+                  00007ac4    00000018                              : sysctl_a.o (.text:SysCtl_A_enableNMISource)
+                  00007adc    00000018     drivers_msp432p401x.aem4f : UART.oem4f (.text:UART_Params_init)
+                  00007af4    00000018     freertos_builds_MSP_EXP432P401R_release_ccs.lib : semaphore.obj (.text:sem_wait)
+                  00007b0c    00000016                                                     : ClockP_freertos.obj (.text:ClockP_setTimeout)
+                  00007b22    00000016     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_close)
+                  00007b38    00000016     freertos_builds_MSP_EXP432P401R_release_ccs.lib : PTLS.obj (.text:PTLS_getBuf)
+                  00007b4e    00000016                                                     : PTLS.obj (.text:PTLS_setBuf)
+                  00007b64    00000016                                                     : SemaphoreP_freertos.obj (.text:SemaphoreP_Params_init)
+                  00007b7a    00000002     --HOLE-- [fill = 0]
+                  00007b7c    00000014     drivers_msp432p401x.aem4f : ADCBuf.oem4f (.text:ADCBuf_Params_init)
+                  00007b90    00000014                               : PowerMSP432.oem4f (.text:Power_idleFunc)
+                  00007ba4    00000014                               : UARTMSP432.oem4f (.text:clearTXCPTIFG)
+                  00007bb8    00000014     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:prvDeleteTCB)
+                  00007bcc    00000014                                                     : pthread.obj (.text:pthread_attr_setstacksize)
+                  00007be0    00000014                                                     : pthread.obj (.text:pthread_self)
+                  00007bf4    00000014                                                     : startup_msp432_ccs.obj (.text:resetISR)
+                  00007c08    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : strlen.c.obj (.text:strlen)
+                  00007c1c    00000014     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:xTaskGetCurrentTaskHandle)
+                  00007c30    00000014                                                     : tasks.obj (.text:xTaskGetTickCount)
+                  00007c44    00000012                                                     : HwiPMSP432_freertos.obj (.text:HwiP_delete)
+                  00007c56    00000012     drivers_msp432p401x.aem4f : RingBuf.oem4f (.text:RingBuf_construct)
+                  00007c68    00000010     msp432p4xx_driverlib.lib : adc14.o (.text:ADCIsConversionRunning)
+                  00007c78    00000010     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:PowerMSP432_getNumPerfLevels)
+                  00007c88    00000010     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_getNMISourceStatus)
+                  00007c98    00000010                              : sysctl.o (.text:SysCtl_getNMISourceStatus)
+                  00007ca8    00000010     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readBlockingTimeout)
+                  00007cb8    00000010     freertos_builds_MSP_EXP432P401R_release_ccs.lib : list.obj (.text:vListInitialiseItem)
+                  00007cc8    00000010                                                     : tasks.obj (.text:vTaskSuspendAll)
+                  00007cd8    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00007ce6    0000000c     ti_drivers_config.obj (.text:Board_init)
+                  00007cf2    0000000c     msp432p4xx_driverlib.lib : cpu.o (.text:CPU_cpsid)
+                  00007cfe    0000000c                              : cpu.o (.text:CPU_cpsie)
+                  00007d0a    0000000c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : HwiPMSP432_freertos.obj (.text:HwiP_clearInterrupt)
+                  00007d16    00000002     --HOLE-- [fill = 0]
+                  00007d18    0000000c     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_getConstraintMask)
+                  00007d24    0000000c                               : PowerMSP432.oem4f (.text:Power_getPerformanceLevel)
+                  00007d30    0000000c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : SemaphoreP_freertos.obj (.text:SemaphoreP_delete)
+                  00007d3c    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  00007d48    0000000c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.text:vTaskMissedYield)
+                  00007d54    0000000a     drivers_msp432p401x.aem4f : ADCBuf.oem4f (.text:ADCBuf_convert)
+                  00007d5e    0000000a     freertos_builds_MSP_EXP432P401R_release_ccs.lib : PowerMSP432_freertos.obj (.text:PowerMSP432_updateFreqs)
+                  00007d68    0000000a     drivers_msp432p401x.aem4f : UART.oem4f (.text:UART_close)
+                  00007d72    0000000a                               : UART.oem4f (.text:UART_control)
+                  00007d7c    0000000a                               : UART.oem4f (.text:UART_write)
+                  00007d86    0000000a     main_freertos.obj (.text:vApplicationStackOverflowHook)
+                  00007d90    0000000a     freertos_builds_MSP_EXP432P401R_release_ccs.lib : PowerMSP432_freertos.obj (.text:vPortSuppressTicksAndSleep)
+                  00007d9a    00000008     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:blockingConvertCallback)
+                  00007da2    00000008                               : UARTMSP432.oem4f (.text:readSemCallback)
+                  00007daa    00000008                               : UARTMSP432.oem4f (.text:txcptEnabledStatus)
+                  00007db2    00000008                               : UARTMSP432.oem4f (.text:writeSemCallback)
+                  00007dba    00000006                               : ADCBufMSP432.oem4f (.text:ADCBufMSP432_adjustRawValues)
+                  00007dc0    00000006     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_control)
+                  00007dc6    00000006                   : DisplayUart.oem4f (.text:DisplayUartMin_getType)
+                  00007dcc    00000006                   : Display.oem4f (.text:Display_doParamsInit)
+                  00007dd2    00000004     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.text:ADCBufMSP432_getResolution)
+                  00007dd6    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00007dda    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00007de0    000002f7     
+                  00007de0    00000080     msp432p4xx_driverlib.lib : adc14.o (.const:_ctlRegs)
+                  00007e60    00000050                              : interrupt.o (.const:g_pulRegs)
+                  00007eb0    00000040     ti_drivers_config.obj (.const:uartMSP432Baudrates)
+                  00007ef0    00000038     ti_drivers_config.obj (.const:PowerMSP432_config)
+                  00007f28    0000002c     ti_drivers_config.obj (.const:uartMSP432HWAttrs)
+                  00007f54    00000028     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.const:UARTMSP432_fxnTable)
+                  00007f7c    00000024                               : ADCBufMSP432.oem4f (.const:ADCBufMSP432_fxnTable)
+                  00007fa0    00000024                               : UART.oem4f (.const:UART_defaultParams)
+                  00007fc4    00000020     display.aem4f : DisplayUart.oem4f (.const:DisplayUartMin_fxnTable)
+                  00007fe4    00000020     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.const:staticFxnTable)
+                  00008004    00000018                               : ADCBufMSP432.oem4f (.const:$P$T0$1)
+                  0000801c    00000018                               : ADCBuf.oem4f (.const:ADCBuf_defaultParams)
+                  00008034    00000014     ti_drivers_config.obj (.const:adcbufMSP432HWAttrs)
+                  00008048    00000014     ti_drivers_config.obj (.const:displayUartHWAttrs)
+                  0000805c    00000010     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.const:$P$T1$2)
+                  0000806c    0000000c     ti_drivers_config.obj (.const:ADCBuf_config)
+                  00008078    0000000c     ti_drivers_config.obj (.const:Display_config)
+                  00008084    0000000c     ti_drivers_config.obj (.const:UART_config)
+                  00008090    0000000c     ti_drivers_config.obj (.const:udmaMSP432HWAttrs)
+                  0000809c    00000008     ti_drivers_config.obj (.const:UDMAMSP432_config)
+                  000080a4    00000008     freertos_builds_MSP_EXP432P401R_release_ccs.lib : port.obj (.const)
+                  000080ac    00000008     msp432p4xx_driverlib.lib : interrupt.o (.const:g_pulDisRegs)
+                  000080b4    00000008                              : interrupt.o (.const:g_pulEnRegs)
+                  000080bc    00000008                              : interrupt.o (.const:g_pulUnpendRegs)
+                  000080c4    00000005     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.const:.string:parityTypes)
+                  000080c9    00000003     ti_drivers_config.obj (.const)
+                  000080cc    00000004     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.const)
+                  000080d0    00000004     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.const:stopBits)
+                  000080d4    00000002     freertos_builds_MSP_EXP432P401R_release_ccs.lib : pthread.obj (.const:.string)
+                  000080d6    00000001     display.aem4f : Display.oem4f (.const:Display_defaultParams)
+
+.cinit     0    000080d8    000000f0     
+                  000080d8    000000bb     (.cinit..data.load) [load image, compression = lzss]
+                  00008193    00000001     --HOLE-- [fill = 0]
+                  00008194    0000000c     (__TI_handler_table)
+                  000081a0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000081a8    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
+                  000081b0    00000018     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.intvecs   0    00000000    00000144     
+                  00000000    00000144     freertos_builds_MSP_EXP432P401R_release_ccs.lib : startup_msp432_ccs.obj (.intvecs:retain)
+
+.bss       0    20000000    00008849     UNINITIALIZED
+                  20000000    00008000     freertos_builds_MSP_EXP432P401R_release_ccs.lib : heap_4.obj (.bss:ucHeap)
+                  20008000    00000400     ti_drivers_config.obj (.bss:displayUARTBuffer)
+                  20008400    00000100     ti_drivers_config.obj (.bss:dmaControlTable)
+                  20008500    000000c8     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.bss:pxReadyTasksLists)
+                  200085c8    00000088     (.common:adcbufMSP432Objects)
+                  20008650    00000080     (.common:uartMSP432Objects)
+                  200086d0    00000020     drivers_msp432p401x.aem4f : UDMAMSP432.oem4f (.bss:hwiFxnArgs)
+                  200086f0    00000020                               : UDMAMSP432.oem4f (.bss:hwiFxnHandlers)
+                  20008710    00000020     ti_drivers_config.obj (.bss:uartMSP432RingBuffer0)
+                  20008730    0000001c     (.common:adcbufSem)
+                  2000874c    00000014     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.bss:xActiveTimerList1)
+                  20008760    00000014                                                     : timers.obj (.bss:xActiveTimerList2)
+                  20008774    00000014                                                     : tasks.obj (.bss:xDelayedTaskList1)
+                  20008788    00000014                                                     : tasks.obj (.bss:xDelayedTaskList2)
+                  2000879c    00000014                                                     : tasks.obj (.bss:xPendingReadyList)
+                  200087b0    00000014                                                     : tasks.obj (.bss:xSuspendedTaskList)
+                  200087c4    00000014                                                     : tasks.obj (.bss:xTasksWaitingTermination)
+                  200087d8    00000010     drivers_msp432p401x.aem4f : UDMAMSP432.oem4f (.bss:hwiHandles)
+                  200087e8    0000000c     (.common:displayUartObject)
+                  200087f4    0000000c     (.common:outputBuffer)
+                  20008800    0000000c     (.common:sampleBufferOne)
+                  2000880c    0000000c     (.common:sampleBufferTwo)
+                  20008818    00000008     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.bss)
+                  20008820    00000008                                                     : timers.obj (.bss)
+                  20008828    00000008     msp432p4xx_driverlib.lib : cs.o (.bss)
+                  20008830    00000008     freertos_builds_MSP_EXP432P401R_release_ccs.lib : heap_4.obj (.bss:xStart)
+                  20008838    00000004     drivers_msp432p401x.aem4f : ADCBufMSP432.oem4f (.bss)
+                  2000883c    00000004     freertos_builds_MSP_EXP432P401R_release_ccs.lib : aeabi_portable.obj (.bss:main_reent)
+                  20008840    00000004     drivers_msp432p401x.aem4f : TimerMSP432.oem4f (.bss:timerState)
+                  20008844    00000004     (.common:displayHandle)
+                  20008848    00000001     (.common:udmaMSP432Object)
+
+.data      0    2000884c    00000a5e     UNINITIALIZED
+                  2000884c    00000800     freertos_builds_MSP_EXP432P401R_release_ccs.lib : HwiPMSP432_freertos.obj (.data:HwiP_dispatchTable)
+                  2000904c    00000140     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.data:PowerMSP432_perfLevels)
+                  2000918c    00000034     freertos_builds_MSP_EXP432P401R_release_ccs.lib : tasks.obj (.data)
+                  200091c0    0000002c     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.data:PowerMSP432_module)
+                  200091ec    0000001c                               : ADCBufMSP432.oem4f (.data:adcSampleHoldTrigger)
+                  20009208    0000001c                               : ADCBufMSP432.oem4f (.data:adcTriggerTable)
+                  20009224    00000018     ti_drivers_config.obj (.data:adcBufMSP432Channels)
+                  2000923c    00000018     freertos_builds_MSP_EXP432P401R_release_ccs.lib : heap_4.obj (.data)
+                  20009254    00000018                                                     : port.obj (.data)
+                  2000926c    00000014                                                     : pthread.obj (.data:defaultPthreadAttrs)
+                  20009280    00000010     drivers_msp432p401x.aem4f : UDMAMSP432.oem4f (.data)
+                  20009290    0000000c     freertos_builds_MSP_EXP432P401R_release_ccs.lib : timers.obj (.data)
+                  2000929c    00000004     adcBufMultiChannel.obj (.data)
+                  200092a0    00000004     freertos_builds_MSP_EXP432P401R_release_ccs.lib : ClockP_freertos.obj (.data)
+                  200092a4    00000004                                                     : HwiPMSP432_freertos.obj (.data)
+                  200092a8    00000001     drivers_msp432p401x.aem4f : ADCBuf.oem4f (.data)
+                  200092a9    00000001                               : UART.oem4f (.data)
+
+.vtable    0    20009400    000000e8     UNINITIALIZED
+                  20009400    000000e8     msp432p4xx_driverlib.lib : interrupt.o (.vtable)
+
+.stack     0    2000fc00    00000400     UNINITIALIZED
+                  2000fc00    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000fc04    000003fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+MODULE SUMMARY
+
+       Module                       code    ro data   rw data
+       ------                       ----    -------   -------
+    .\
+       adcBufMultiChannel.obj       580     0         144    
+       main_freertos.obj            112     0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       692     0         144    
+                                                             
+    .\syscfg\
+       ti_drivers_config.obj        42      263       3226   
+    +--+----------------------------+-------+---------+---------+
+       Total:                       42      263       3226   
+                                                             
+    C:/Users/19152/Desktop/MSP432 FreeRTOS/freertos_builds_MSP_EXP432P401R_release_ccs/Debug/freertos_builds_MSP_EXP432P401R_release_ccs.lib
+       heap_4.obj                   912     0         65600  
+       tasks.obj                    4290    0         720    
+       HwiPMSP432_freertos.obj      344     0         4104   
+       queue.obj                    3098    0         0      
+       timers.obj                   1562    0         120    
+       SystemP_freertos.obj         1450    0         0      
+       pthread.obj                  798     6         40     
+       port.obj                     764     8         48     
+       ClockP_freertos.obj          598     0         8      
+       startup_msp432_ccs.obj       26      324       0      
+       list.obj                     298     0         0      
+       SemaphoreP_freertos.obj      250     0         0      
+       portasm.obj                  218     0         0      
+       semaphore.obj                198     0         0      
+       PowerMSP432_freertos.obj     80      0         0      
+       aeabi_portable.obj           64      0         8      
+       PTLS.obj                     70      0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       15020   338       70648  
+                                                             
+    C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib
+       cs.o                         1522    0         16     
+       interrupt.o                  550     104       464    
+       adc14.o                      768     128       0      
+       uart.o                       284     0         0      
+       dma.o                        240     0         0      
+       sysctl_a.o                   212     0         0      
+       cpu.o                        24      0         0      
+       sysctl.o                     16      0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       3616    232       480    
+                                                             
+    C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/display/lib/display.aem4f
+       DisplayUart.oem4f            184     32        0      
+       Display.oem4f                180     1         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       364     33        0      
+                                                             
+    C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/lib/drivers_msp432p401x.aem4f
+       UARTMSP432.oem4f             3406    81        0      
+       ADCBufMSP432.oem4f           2826    76        120    
+       PowerMSP432.oem4f            2196    0         728    
+       UDMAMSP432.oem4f             1272    0         192    
+       UART.oem4f                   186     36        2      
+       TimerMSP432.oem4f            204     0         8      
+       ADCBuf.oem4f                 162     24        2      
+       RingBuf.oem4f                184     0         0      
+       List.oem4f                   76      0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       10512   217       1052   
+                                                             
+    C:\ti\ccs1000\ccs\tools\compiler\ti-cgt-arm_20.2.0.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       fd_add_t2.asm.obj            438     0         0      
+       fd_mul_t2.asm.obj            252     0         0      
+       memcpy_t2.asm.obj            156     0         0      
+       fd_cmp_t2.asm.obj            134     0         0      
+       memset_t2.asm.obj            122     0         0      
+       copy_decompress_lzss.c.obj   104     0         0      
+       fd_toi_t2.asm.obj            72      0         0      
+       autoinit.c.obj               68      0         0      
+       fd_tou_t2.asm.obj            68      0         0      
+       u_divt2.asm.obj              64      0         0      
+       boot_cortex_m.c.obj          52      0         0      
+       i_tofd_t2.asm.obj            46      0         0      
+       strlen.c.obj                 20      0         0      
+       copy_decompress_none.c.obj   14      0         0      
+       copy_zero_init.c.obj         12      0         0      
+       exit.c.obj                   4       0         0      
+       pre_init.c.obj               4       0         0      
+       div0.asm.obj                 2       0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       1632    0         0      
+                                                             
+       Stack:                       0       0         2048   
+       Linker Generated:            0       239       0      
+    +--+----------------------------+-------+---------+---------+
+       Grand Total:                 31878   1322      77598  
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000081b0 records: 3, size/record: 8, table size: 24
+	.data: load addr=000080d8, load size=000000bb bytes, run addr=2000884c, run size=00000a5e bytes, compression=lzss
+	.bss: load addr=000081a0, load size=00000008 bytes, run addr=20000000, run size=00008849 bytes, compression=zero_init
+	.vtable: load addr=000081a8, load size=00000008 bytes, run addr=20009400, run size=000000e8 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00008194 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                    
+-------   ----                                    
+000042d5  ADC14_configureConversionMemory         
+00004389  ADC14_configureMultiSequenceMode        
+000075d5  ADC14_getResult                         
+00006555  ADCBufMSP432DMA_hwiIntFxn               
+00007dbb  ADCBufMSP432_adjustRawValues            
+00005819  ADCBufMSP432_close                      
+00003b65  ADCBufMSP432_control                    
+00005ca9  ADCBufMSP432_convert                    
+00006ad5  ADCBufMSP432_convertAdjustedToMicroVolts
+0000734d  ADCBufMSP432_convertCancel              
+00007f7c  ADCBufMSP432_fxnTable                   
+00007dd3  ADCBufMSP432_getResolution              
+000031fd  ADCBufMSP432_hwiIntFxn                  
+00006ba9  ADCBufMSP432_init                       
+00001fed  ADCBufMSP432_open                       
+00007b7d  ADCBuf_Params_init                      
+0000806c  ADCBuf_config                           
+00007d55  ADCBuf_convert                          
+000080ca  ADCBuf_count                            
+0000801c  ADCBuf_defaultParams                    
+00006bed  ADCBuf_init                             
+00006d41  ADCBuf_open                             
+00007ce7  Board_init                              
+000018c3  Board_initHook                          
+00007ddb  C$$EXIT                                 
+00007cf3  CPU_cpsid                               
+00007cff  CPU_cpsie                               
+0000737d  CS_clearInterruptFlag                   
+00002e41  CS_getDCOFrequency                      
+000075fd  CS_getMCLK                              
+000078d1  CS_setExternalClockSourceFrequency      
+00003119  CS_startHFXTWithTimeout                 
+000032dd  CS_startLFXTWithTimeout                 
+000079eb  ClockP_Params_init                      
+00006f41  ClockP_callbackFxn                      
+00004afd  ClockP_create                           
+000065a9  ClockP_delete                           
+00007b0d  ClockP_setTimeout                       
+00007991  ClockP_start                            
+00005f15  ClockP_stop                             
+00002f39  DMA_setChannelTransfer                  
+0000293f  DisplayUartMin_clear                    
+000039bf  DisplayUartMin_clearLines               
+00007b23  DisplayUartMin_close                    
+00007dc1  DisplayUartMin_control                  
+00007fc4  DisplayUartMin_fxnTable                 
+00007dc7  DisplayUartMin_getType                  
+00003cfb  DisplayUartMin_init                     
+00006969  DisplayUartMin_open                     
+00006b1b  DisplayUartMin_vprintf                  
+00008078  Display_config                          
+000080c9  Display_count                           
+000080d6  Display_defaultParams                   
+00007625  Display_doInit                          
+00006229  Display_doOpen                          
+00007dcd  Display_doParamsInit                    
+000075a9  Display_doPrintf                        
+000079af  HwiP_Params_init                        
+00007d0b  HwiP_clearInterrupt                     
+00006109  HwiP_create                             
+00007c45  HwiP_delete                             
+000074f9  HwiP_disable                            
+000069b5  HwiP_dispatch                           
+2000884c  HwiP_dispatchTable                      
+0000764d  HwiP_inISR                              
+000078f1  HwiP_restore                            
+000054ad  Interrupt_disableInterrupt              
+0000552d  Interrupt_enableInterrupt               
+00006285  Interrupt_registerInterrupt             
+000065fd  Interrupt_setPriority                   
+000063f5  Interrupt_unpendInterrupt               
+00007a09  Interrupt_unregisterInterrupt           
+00007765  List_put                                
+0000778b  List_remove                             
+00007b39  PTLS_getBuf                             
+00007b4f  PTLS_setBuf                             
+00007a79  PTLS_taskDeleteHook                     
+00007ef0  PowerMSP432_config                      
+00005d11  PowerMSP432_getFreqs                    
+00007c79  PowerMSP432_getNumPerfLevels            
+0000485b  PowerMSP432_initPolicy                  
+200091c0  PowerMSP432_module                      
+2000904c  PowerMSP432_perfLevels                  
+00007129  PowerMSP432_sleepPolicy                 
+00007d5f  PowerMSP432_updateFreqs                 
+00007d19  Power_getConstraintMask                 
+00007d25  Power_getPerformanceLevel               
+00007b91  Power_idleFunc                          
+00004c3d  Power_init                              
+00007675  Power_registerNotify                    
+000069fd  Power_releaseConstraint                 
+00007165  Power_setConstraint                     
+00000969  Power_sleep                             
+00007911  Power_unregisterNotify                  
+00007c57  RingBuf_construct                       
+00006d81  RingBuf_get                             
+00007931  RingBuf_peek                            
+00006b61  RingBuf_put                             
+00007b65  SemaphoreP_Params_init                  
+000064fd  SemaphoreP_create                       
+00007525  SemaphoreP_createBinary                 
+00007d31  SemaphoreP_delete                       
+0000727b  SemaphoreP_pend                         
+00007869  SemaphoreP_post                         
+00007aad  SysCtl_A_disableNMISource               
+00007ac5  SysCtl_A_enableNMISource                
+00007c89  SysCtl_A_getNMISourceStatus             
+00004e11  SysCtl_A_getTLVInfo                     
+00007c99  SysCtl_getNMISourceStatus               
+0000788b  SystemP_vsnprintf                       
+00005891  TimerMSP432_allocateTimerResource       
+00006651  TimerMSP432_freeTimerResource           
+00005061  UARTMSP432_close                        
+0000443d  UARTMSP432_control                      
+00007f54  UARTMSP432_fxnTable                     
+00003c31  UARTMSP432_hwiIntFxn                    
+0000531f  UARTMSP432_init                         
+00000c61  UARTMSP432_open                         
+00006dc1  UARTMSP432_read                         
+00007245  UARTMSP432_readCancel                   
+0000349d  UARTMSP432_readPolling                  
+000047b3  UARTMSP432_write                        
+00005b59  UARTMSP432_writeCancel                  
+000044f1  UARTMSP432_writePolling                 
+00007add  UART_Params_init                        
+00007d69  UART_close                              
+00008084  UART_config                             
+00007d73  UART_control                            
+000080cb  UART_count                              
+00007fa0  UART_defaultParams                      
+00006c31  UART_init                               
+000025fd  UART_initModule                         
+00006e01  UART_open                               
+00007d7d  UART_write                              
+000066a5  UDMAMSP432_PingPongToggleBuffer         
+00003579  UDMAMSP432_close                        
+0000809c  UDMAMSP432_config                       
+00004ea5  UDMAMSP432_init                         
+00004f39  UDMAMSP432_open                         
+00004cd9  UDMAMSP432_setupPingPongTransfer        
+00005321  UDMAMSP432_setupTransfer                
+4000480c  WDTCTL_SYM                              
+20010000  __STACK_END                             
+00000400  __STACK_SIZE                            
+000081b0  __TI_CINIT_Base                         
+000081c8  __TI_CINIT_Limit                        
+00008194  __TI_Handler_Table_Base                 
+000081a0  __TI_Handler_Table_Limit                
+00006c75  __TI_auto_init_nobinit_nopinit          
+00005d79  __TI_decompress_lzss                    
+00007cd9  __TI_decompress_none                    
+ffffffff  __TI_pprof_out_hndl                     
+ffffffff  __TI_prof_data_size                     
+ffffffff  __TI_prof_data_start                    
+000080d8  __TI_static_base__                      
+00007d3d  __TI_zero_init                          
+00005299  __aeabi_cdcmpeq                         
+00005299  __aeabi_cdcmple                         
+00006a45  __aeabi_d2iz                            
+00006cfd  __aeabi_d2uiz                           
+00001717  __aeabi_dadd                            
+00002c49  __aeabi_dmul                            
+0000170d  __aeabi_dsub                            
+00006e41  __aeabi_errno_addr                      
+000074c9  __aeabi_i2d                             
+00006553  __aeabi_idiv0                           
+00006553  __aeabi_ldiv0                           
+00005723  __aeabi_memclr                          
+00005723  __aeabi_memclr4                         
+00005723  __aeabi_memclr8                         
+00004d75  __aeabi_memcpy                          
+00004d75  __aeabi_memcpy4                         
+00004d75  __aeabi_memcpy8                         
+00005725  __aeabi_memset                          
+00005725  __aeabi_memset4                         
+00005725  __aeabi_memset8                         
+00006ec1  __aeabi_uidiv                           
+00006ec1  __aeabi_uidivmod                        
+ffffffff  __binit__                               
+ffffffff  __c_args__                              
+UNDEFED   __mpu_init                              
+2000fc00  __stack                                 
+20000000  __start___llvm_prf_cnts                 
+20000000  __stop___llvm_prf_cnts                  
+000072b1  _c_int00_noargs                         
+000077b1  _pthread_cleanup_pop                    
+UNDEFED   _system_post_cinit                      
+00007dd7  _system_pre_init                        
+00007ddb  abort                                   
+00005909  adcBufCallback                          
+20009224  adcBufMSP432Channels                    
+00008034  adcbufMSP432HWAttrs                     
+200085c8  adcbufMSP432Objects                     
+20008730  adcbufSem                               
+ffffffff  binit                                   
+2000929c  buffersCompletedCounter                 
+20008844  displayHandle                           
+00008048  displayUartHWAttrs                      
+200087e8  displayUartObject                       
+20009400  g_pfnRAMVectors                         
+00000000  interruptVectors                        
+00005fdd  main                                    
+00001389  mainThread                              
+00004d75  memcpy                                  
+0000572b  memset                                  
+200087f4  outputBuffer                            
+00007a41  pthread_attr_init                       
+000078ad  pthread_attr_setdetachstate             
+00007715  pthread_attr_setschedparam              
+00007bcd  pthread_attr_setstacksize               
+0000226d  pthread_create                          
+0000633d  pthread_exit                            
+00007be1  pthread_self                            
+00006f7f  pthread_setcancelstate                  
+000018c5  pvPortMalloc                            
+00007075  pvTaskGetThreadLocalStoragePointer      
+00007a5d  pvTaskIncrementMutexHeldCount           
+0000749b  pvTimerGetTimerID                       
+2000918c  pxCurrentTCB                            
+00006169  pxPortInitialiseStack                   
+00007bf5  resetISR                                
+20008800  sampleBufferOne                         
+2000880c  sampleBufferTwo                         
+0000679d  sem_init                                
+00006fbd  sem_post                                
+00007af5  sem_wait                                
+00007c09  strlen                                  
+20008650  uartMSP432Objects                       
+00008090  udmaMSP432HWAttrs                       
+20008848  udmaMSP432Object                        
+000080a4  ulMaxSyscallInterruptPriority           
+0000381d  ulPortGetIPSR                           
+00006a8d  uxListRemove                            
+000069b3  vApplicationMallocFailedHook            
+00007d87  vApplicationStackOverflowHook           
+000073dd  vListInitialise                         
+00007cb9  vListInitialiseItem                     
+00005ead  vListInsert                             
+000070b1  vListInsertEnd                          
+000038d9  vPortEnableVFP                          
+000068d1  vPortEnterCritical                      
+0000740d  vPortExitCritical                       
+000049ad  vPortFree                               
+00003895  vPortSVCHandler                         
+000059f9  vPortSetupTimerInterrupt                
+000038b5  vPortStartFirstTask                     
+00007d91  vPortSuppressTicksAndSleep              
+00005ae5  vPortValidateInterruptPriority          
+00007821  vQueueDelete                            
+00006399  vQueueWaitForMessageRestricted          
+00002b49  vTaskDelete                             
+00007845  vTaskInternalSetTimeOutState            
+00007d49  vTaskMissedYield                        
+00007319  vTaskPlaceOnEventList                   
+00006f01  vTaskPlaceOnEventListRestricted         
+00002a45  vTaskPriorityDisinheritAfterTimeout     
+00007551  vTaskSetApplicationTaskTag              
+0000691d  vTaskSetThreadLocalStoragePointer       
+00004fcd  vTaskStartScheduler                     
+00002d45  vTaskSuspend                            
+00007cc9  vTaskSuspendAll                         
+00003731  vTaskSwitchContext                      
+00003835  xPortPendSVHandler                      
+00003a95  xPortStartScheduler                     
+0000757d  xPortSysTickHandler                     
+000064a5  xQueueCreateCountingSemaphore           
+000061c9  xQueueGenericCreate                     
+00004165  xQueueGenericReset                      
+00001555  xQueueGenericSend                       
+00002835  xQueueGenericSendFromISR                
+00003029  xQueueGiveFromISR                       
+00001a49  xQueueReceive                           
+000038e7  xQueueReceiveFromISR                    
+000011b9  xQueueSemaphoreTake                     
+00004655  xTaskCheckForTimeOut                    
+0000579d  xTaskCreate                             
+0000773d  xTaskGetApplicationTaskTag              
+00007c1d  xTaskGetCurrentTaskHandle               
+0000743d  xTaskGetSchedulerState                  
+00007c31  xTaskGetTickCount                       
+0000212d  xTaskIncrementTick                      
+000033bd  xTaskPriorityDisinherit                 
+000039c1  xTaskPriorityInherit                    
+00004a55  xTaskRemoveFromEventList                
+00002719  xTaskResumeAll                          
+000070ed  xTimerCreate                            
+000066f9  xTimerCreateTimerTask                   
+00005429  xTimerGenericCommand                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                    
+-------   ----                                    
+00000000  interruptVectors                        
+00000400  __STACK_SIZE                            
+00000969  Power_sleep                             
+00000c61  UARTMSP432_open                         
+000011b9  xQueueSemaphoreTake                     
+00001389  mainThread                              
+00001555  xQueueGenericSend                       
+0000170d  __aeabi_dsub                            
+00001717  __aeabi_dadd                            
+000018c3  Board_initHook                          
+000018c5  pvPortMalloc                            
+00001a49  xQueueReceive                           
+00001fed  ADCBufMSP432_open                       
+0000212d  xTaskIncrementTick                      
+0000226d  pthread_create                          
+000025fd  UART_initModule                         
+00002719  xTaskResumeAll                          
+00002835  xQueueGenericSendFromISR                
+0000293f  DisplayUartMin_clear                    
+00002a45  vTaskPriorityDisinheritAfterTimeout     
+00002b49  vTaskDelete                             
+00002c49  __aeabi_dmul                            
+00002d45  vTaskSuspend                            
+00002e41  CS_getDCOFrequency                      
+00002f39  DMA_setChannelTransfer                  
+00003029  xQueueGiveFromISR                       
+00003119  CS_startHFXTWithTimeout                 
+000031fd  ADCBufMSP432_hwiIntFxn                  
+000032dd  CS_startLFXTWithTimeout                 
+000033bd  xTaskPriorityDisinherit                 
+0000349d  UARTMSP432_readPolling                  
+00003579  UDMAMSP432_close                        
+00003731  vTaskSwitchContext                      
+0000381d  ulPortGetIPSR                           
+00003835  xPortPendSVHandler                      
+00003895  vPortSVCHandler                         
+000038b5  vPortStartFirstTask                     
+000038d9  vPortEnableVFP                          
+000038e7  xQueueReceiveFromISR                    
+000039bf  DisplayUartMin_clearLines               
+000039c1  xTaskPriorityInherit                    
+00003a95  xPortStartScheduler                     
+00003b65  ADCBufMSP432_control                    
+00003c31  UARTMSP432_hwiIntFxn                    
+00003cfb  DisplayUartMin_init                     
+00004165  xQueueGenericReset                      
+000042d5  ADC14_configureConversionMemory         
+00004389  ADC14_configureMultiSequenceMode        
+0000443d  UARTMSP432_control                      
+000044f1  UARTMSP432_writePolling                 
+00004655  xTaskCheckForTimeOut                    
+000047b3  UARTMSP432_write                        
+0000485b  PowerMSP432_initPolicy                  
+000049ad  vPortFree                               
+00004a55  xTaskRemoveFromEventList                
+00004afd  ClockP_create                           
+00004c3d  Power_init                              
+00004cd9  UDMAMSP432_setupPingPongTransfer        
+00004d75  __aeabi_memcpy                          
+00004d75  __aeabi_memcpy4                         
+00004d75  __aeabi_memcpy8                         
+00004d75  memcpy                                  
+00004e11  SysCtl_A_getTLVInfo                     
+00004ea5  UDMAMSP432_init                         
+00004f39  UDMAMSP432_open                         
+00004fcd  vTaskStartScheduler                     
+00005061  UARTMSP432_close                        
+00005299  __aeabi_cdcmpeq                         
+00005299  __aeabi_cdcmple                         
+0000531f  UARTMSP432_init                         
+00005321  UDMAMSP432_setupTransfer                
+00005429  xTimerGenericCommand                    
+000054ad  Interrupt_disableInterrupt              
+0000552d  Interrupt_enableInterrupt               
+00005723  __aeabi_memclr                          
+00005723  __aeabi_memclr4                         
+00005723  __aeabi_memclr8                         
+00005725  __aeabi_memset                          
+00005725  __aeabi_memset4                         
+00005725  __aeabi_memset8                         
+0000572b  memset                                  
+0000579d  xTaskCreate                             
+00005819  ADCBufMSP432_close                      
+00005891  TimerMSP432_allocateTimerResource       
+00005909  adcBufCallback                          
+000059f9  vPortSetupTimerInterrupt                
+00005ae5  vPortValidateInterruptPriority          
+00005b59  UARTMSP432_writeCancel                  
+00005ca9  ADCBufMSP432_convert                    
+00005d11  PowerMSP432_getFreqs                    
+00005d79  __TI_decompress_lzss                    
+00005ead  vListInsert                             
+00005f15  ClockP_stop                             
+00005fdd  main                                    
+00006109  HwiP_create                             
+00006169  pxPortInitialiseStack                   
+000061c9  xQueueGenericCreate                     
+00006229  Display_doOpen                          
+00006285  Interrupt_registerInterrupt             
+0000633d  pthread_exit                            
+00006399  vQueueWaitForMessageRestricted          
+000063f5  Interrupt_unpendInterrupt               
+000064a5  xQueueCreateCountingSemaphore           
+000064fd  SemaphoreP_create                       
+00006553  __aeabi_idiv0                           
+00006553  __aeabi_ldiv0                           
+00006555  ADCBufMSP432DMA_hwiIntFxn               
+000065a9  ClockP_delete                           
+000065fd  Interrupt_setPriority                   
+00006651  TimerMSP432_freeTimerResource           
+000066a5  UDMAMSP432_PingPongToggleBuffer         
+000066f9  xTimerCreateTimerTask                   
+0000679d  sem_init                                
+000068d1  vPortEnterCritical                      
+0000691d  vTaskSetThreadLocalStoragePointer       
+00006969  DisplayUartMin_open                     
+000069b3  vApplicationMallocFailedHook            
+000069b5  HwiP_dispatch                           
+000069fd  Power_releaseConstraint                 
+00006a45  __aeabi_d2iz                            
+00006a8d  uxListRemove                            
+00006ad5  ADCBufMSP432_convertAdjustedToMicroVolts
+00006b1b  DisplayUartMin_vprintf                  
+00006b61  RingBuf_put                             
+00006ba9  ADCBufMSP432_init                       
+00006bed  ADCBuf_init                             
+00006c31  UART_init                               
+00006c75  __TI_auto_init_nobinit_nopinit          
+00006cfd  __aeabi_d2uiz                           
+00006d41  ADCBuf_open                             
+00006d81  RingBuf_get                             
+00006dc1  UARTMSP432_read                         
+00006e01  UART_open                               
+00006e41  __aeabi_errno_addr                      
+00006ec1  __aeabi_uidiv                           
+00006ec1  __aeabi_uidivmod                        
+00006f01  vTaskPlaceOnEventListRestricted         
+00006f41  ClockP_callbackFxn                      
+00006f7f  pthread_setcancelstate                  
+00006fbd  sem_post                                
+00007075  pvTaskGetThreadLocalStoragePointer      
+000070b1  vListInsertEnd                          
+000070ed  xTimerCreate                            
+00007129  PowerMSP432_sleepPolicy                 
+00007165  Power_setConstraint                     
+00007245  UARTMSP432_readCancel                   
+0000727b  SemaphoreP_pend                         
+000072b1  _c_int00_noargs                         
+00007319  vTaskPlaceOnEventList                   
+0000734d  ADCBufMSP432_convertCancel              
+0000737d  CS_clearInterruptFlag                   
+000073dd  vListInitialise                         
+0000740d  vPortExitCritical                       
+0000743d  xTaskGetSchedulerState                  
+0000749b  pvTimerGetTimerID                       
+000074c9  __aeabi_i2d                             
+000074f9  HwiP_disable                            
+00007525  SemaphoreP_createBinary                 
+00007551  vTaskSetApplicationTaskTag              
+0000757d  xPortSysTickHandler                     
+000075a9  Display_doPrintf                        
+000075d5  ADC14_getResult                         
+000075fd  CS_getMCLK                              
+00007625  Display_doInit                          
+0000764d  HwiP_inISR                              
+00007675  Power_registerNotify                    
+00007715  pthread_attr_setschedparam              
+0000773d  xTaskGetApplicationTaskTag              
+00007765  List_put                                
+0000778b  List_remove                             
+000077b1  _pthread_cleanup_pop                    
+00007821  vQueueDelete                            
+00007845  vTaskInternalSetTimeOutState            
+00007869  SemaphoreP_post                         
+0000788b  SystemP_vsnprintf                       
+000078ad  pthread_attr_setdetachstate             
+000078d1  CS_setExternalClockSourceFrequency      
+000078f1  HwiP_restore                            
+00007911  Power_unregisterNotify                  
+00007931  RingBuf_peek                            
+00007991  ClockP_start                            
+000079af  HwiP_Params_init                        
+000079eb  ClockP_Params_init                      
+00007a09  Interrupt_unregisterInterrupt           
+00007a41  pthread_attr_init                       
+00007a5d  pvTaskIncrementMutexHeldCount           
+00007a79  PTLS_taskDeleteHook                     
+00007aad  SysCtl_A_disableNMISource               
+00007ac5  SysCtl_A_enableNMISource                
+00007add  UART_Params_init                        
+00007af5  sem_wait                                
+00007b0d  ClockP_setTimeout                       
+00007b23  DisplayUartMin_close                    
+00007b39  PTLS_getBuf                             
+00007b4f  PTLS_setBuf                             
+00007b65  SemaphoreP_Params_init                  
+00007b7d  ADCBuf_Params_init                      
+00007b91  Power_idleFunc                          
+00007bcd  pthread_attr_setstacksize               
+00007be1  pthread_self                            
+00007bf5  resetISR                                
+00007c09  strlen                                  
+00007c1d  xTaskGetCurrentTaskHandle               
+00007c31  xTaskGetTickCount                       
+00007c45  HwiP_delete                             
+00007c57  RingBuf_construct                       
+00007c79  PowerMSP432_getNumPerfLevels            
+00007c89  SysCtl_A_getNMISourceStatus             
+00007c99  SysCtl_getNMISourceStatus               
+00007cb9  vListInitialiseItem                     
+00007cc9  vTaskSuspendAll                         
+00007cd9  __TI_decompress_none                    
+00007ce7  Board_init                              
+00007cf3  CPU_cpsid                               
+00007cff  CPU_cpsie                               
+00007d0b  HwiP_clearInterrupt                     
+00007d19  Power_getConstraintMask                 
+00007d25  Power_getPerformanceLevel               
+00007d31  SemaphoreP_delete                       
+00007d3d  __TI_zero_init                          
+00007d49  vTaskMissedYield                        
+00007d55  ADCBuf_convert                          
+00007d5f  PowerMSP432_updateFreqs                 
+00007d69  UART_close                              
+00007d73  UART_control                            
+00007d7d  UART_write                              
+00007d87  vApplicationStackOverflowHook           
+00007d91  vPortSuppressTicksAndSleep              
+00007dbb  ADCBufMSP432_adjustRawValues            
+00007dc1  DisplayUartMin_control                  
+00007dc7  DisplayUartMin_getType                  
+00007dcd  Display_doParamsInit                    
+00007dd3  ADCBufMSP432_getResolution              
+00007dd7  _system_pre_init                        
+00007ddb  C$$EXIT                                 
+00007ddb  abort                                   
+00007ef0  PowerMSP432_config                      
+00007f54  UARTMSP432_fxnTable                     
+00007f7c  ADCBufMSP432_fxnTable                   
+00007fa0  UART_defaultParams                      
+00007fc4  DisplayUartMin_fxnTable                 
+0000801c  ADCBuf_defaultParams                    
+00008034  adcbufMSP432HWAttrs                     
+00008048  displayUartHWAttrs                      
+0000806c  ADCBuf_config                           
+00008078  Display_config                          
+00008084  UART_config                             
+00008090  udmaMSP432HWAttrs                       
+0000809c  UDMAMSP432_config                       
+000080a4  ulMaxSyscallInterruptPriority           
+000080c9  Display_count                           
+000080ca  ADCBuf_count                            
+000080cb  UART_count                              
+000080d6  Display_defaultParams                   
+000080d8  __TI_static_base__                      
+00008194  __TI_Handler_Table_Base                 
+000081a0  __TI_Handler_Table_Limit                
+000081b0  __TI_CINIT_Base                         
+000081c8  __TI_CINIT_Limit                        
+20000000  __start___llvm_prf_cnts                 
+20000000  __stop___llvm_prf_cnts                  
+200085c8  adcbufMSP432Objects                     
+20008650  uartMSP432Objects                       
+20008730  adcbufSem                               
+200087e8  displayUartObject                       
+200087f4  outputBuffer                            
+20008800  sampleBufferOne                         
+2000880c  sampleBufferTwo                         
+20008844  displayHandle                           
+20008848  udmaMSP432Object                        
+2000884c  HwiP_dispatchTable                      
+2000904c  PowerMSP432_perfLevels                  
+2000918c  pxCurrentTCB                            
+200091c0  PowerMSP432_module                      
+20009224  adcBufMSP432Channels                    
+2000929c  buffersCompletedCounter                 
+20009400  g_pfnRAMVectors                         
+2000fc00  __stack                                 
+20010000  __STACK_END                             
+4000480c  WDTCTL_SYM                              
+ffffffff  __TI_pprof_out_hndl                     
+ffffffff  __TI_prof_data_size                     
+ffffffff  __TI_prof_data_start                    
+ffffffff  __binit__                               
+ffffffff  __c_args__                              
+ffffffff  binit                                   
+UNDEFED   __mpu_init                              
+UNDEFED   _system_post_cinit                      
+
+[288 symbols]
