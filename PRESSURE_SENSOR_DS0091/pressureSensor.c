@@ -104,8 +104,6 @@ void *pressureSensor(void *arg0)
     }
     while(1) {
         sem_wait(&adcbufSem);
-
-        Display_printf(displayHandle, 0,0, "This is bs.\n");
         Display_printf(displayHandle, 0, 0, "\r\nBuffer %u finished:",
             (unsigned int)buffersCompletedCounter++);
 
